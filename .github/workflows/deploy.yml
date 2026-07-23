@@ -1,0 +1,67 @@
+name: Deploy (build + publicar na VPS)
+
+# Dispara em qualquer push ao main que toque no site, e pode ser rodado à mão.
+# Builda o Astro no runner (Linux, sem o hang do Mac) e sincroniza o dist para
+# a VPS por SSH usando a chave de deploy (secret), reiniciando o container.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'astro.config.mjs'
+      - 'tsconfig.json'
+      - 'deploy/**'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-producao
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Build
+        run: npx astro build
+
+      - name: Conferir contagem de páginas
+        run: |
+          count=$(find dist -name '*.html' | wc -l)
+          echo "páginas geradas: $count"
+          if [ "$count" -lt 35 ]; then echo "ERRO: páginas de menos"; exit 1; fi
+
+      - name: Publicar na VPS
+        env:
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          rsync -az --delete -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes" \
+            dist/ "$VPS_USER@$VPS_HOST:/home/rodrigo/apps/site-julia/html/"
+          ssh -i ~/.ssh/deploy_key "$VPS_USER@$VPS_HOST" "cd ~/apps/site-julia && docker compose restart"
+
+      - name: Verificar produção
+        run: |
+          for i in $(seq 1 12); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 8 https://psicologajuliatozato.com.br/ || true)
+            if [ "$code" = "200" ]; then echo "site no ar (HTTP 200)"; exit 0; fi
+            sleep 3
+          done
+          echo "ERRO: site não respondeu 200"; exit 1
