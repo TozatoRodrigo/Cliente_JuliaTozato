@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.juliatozato.deploy-watcher</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/rodrigodiastozato/Desktop/site_julia/automation/deploy-pending-posts.sh</string>
+  </array>
+
+  <!-- Verifica a pasta "Posts Blog" a cada 4 horas. Se não houver post novo,
+       sai na hora (nem toca na rede). Se a tarefa do Cowork escreveu um post,
+       publica em até ~4h. -->
+  <key>StartInterval</key>
+  <integer>14400</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/rodrigodiastozato/Desktop/site_julia/automation/logs/deploy-watcher.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/rodrigodiastozato/Desktop/site_julia/automation/logs/deploy-watcher.err.log</string>
+</dict>
+</plist>

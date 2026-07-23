@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { ADDRESS, CONTACT, OPENING_HOURS } from '../lib/constants';
+import { breadcrumbSchema, psychologistBusinessSchema } from '../lib/seo';
+
+const breadcrumbs = [
+  { name: 'Início', path: '/' },
+  { name: 'Contato', path: '/contato' },
+];
+---
+
+<BaseLayout
+  title="Contato e Agendamento | Psicóloga Julia Dias Tozato — Santos"
+  description={`Agende psicoterapia ou avaliação neuropsicológica com Julia Dias Tozato: WhatsApp ${CONTACT.phoneDisplay}. Presencial em Santos-SP (Boqueirão) e online para todo o Brasil.`}
+  path="/contato"
+  schemas={[psychologistBusinessSchema(), breadcrumbSchema(breadcrumbs)]}
+>
+  <article class="mx-auto max-w-3xl px-4 py-10">
+    <Breadcrumbs items={breadcrumbs} />
+    <h1 class="font-serif text-3xl font-semibold text-brand-900 sm:text-4xl">Contato e agendamento</h1>
+    <p class="prose-site mt-4 text-lg">
+      O agendamento é feito diretamente com a Julia, pelo WhatsApp. Envie uma mensagem contando em
+      poucas palavras o que você procura — psicoterapia ou avaliação, para você ou para seu filho —
+      e ela orienta o próximo passo.
+    </p>
+
+    <div class="mt-8 grid gap-6 sm:grid-cols-2">
+      <a
+        href={CONTACT.whatsappUrl}
+        target="_blank"
+        rel="noopener"
+        class="flex flex-col items-center rounded-2xl bg-brand-700 p-8 text-center text-white shadow transition-transform hover:scale-[1.02]"
+      >
+        <span class="text-sm font-semibold tracking-wide uppercase">WhatsApp (mais rápido)</span>
+        <span class="mt-2 font-serif text-2xl font-semibold">{CONTACT.phoneDisplay}</span>
+        <span class="mt-2 text-sm text-brand-100">Toque para abrir a conversa</span>
+      </a>
+
+      <a
+        href={CONTACT.instagramUrl}
+        target="_blank"
+        rel="noopener"
+        class="flex flex-col items-center rounded-2xl border border-brand-200 bg-white p-8 text-center transition-colors hover:bg-brand-50"
+      >
+        <span class="text-sm font-semibold tracking-wide text-brand-700 uppercase">Instagram</span>
+        <span class="mt-2 font-serif text-2xl font-semibold text-brand-900">@cnpneuroepsicologia</span>
+        <span class="mt-2 text-sm text-ink/70">Conteúdo e bastidores do consultório</span>
+      </a>
+    </div>
+
+    <div class="prose-site mt-10">
+      <h2>Atendimento presencial</h2>
+      <p>
+        {ADDRESS.clinicName}
+        <br />
+        {ADDRESS.street} – {ADDRESS.unit}, {ADDRESS.neighborhood}, {ADDRESS.city}/{ADDRESS.state}
+        <br />
+        {OPENING_HOURS}
+      </p>
+      <p>
+        <a href={ADDRESS.mapsUrl} target="_blank" rel="noopener">Ver no Google Maps →</a> ·
+        <a href="/consultorio">Como chegar</a>
+      </p>
+
+      <h2>Atendimento online</h2>
+      <p>
+        Sessões por videochamada para todo o Brasil —
+        <a href="/terapia-online">entenda como funciona</a>.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

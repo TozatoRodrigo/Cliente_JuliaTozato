@@ -1,0 +1,77 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Lora Variable', ui-serif, Georgia, serif;
+
+  /* Paleta própria da marca pessoal: rosa/salmão acolhedor + creme + dourado.
+     Tons claros (50–200) para fundos suaves; tons profundos (700–900) em
+     rosa-ameixa garantem contraste AA para texto e botões. */
+  --color-cream: #fdf7f5;
+  --color-ink: #3a2a2d;
+
+  --color-brand-50: #fdf3f2;
+  --color-brand-100: #fae5e2;
+  --color-brand-200: #f4cec9;
+  --color-brand-300: #e8a9a2;
+  --color-brand-400: #d9847b;
+  --color-brand-500: #c66459;
+  --color-brand-600: #ab4b4f;
+  --color-brand-700: #8f3f49;
+  --color-brand-800: #73333c;
+  --color-brand-900: #56262f;
+
+  --color-accent-100: #f8ebe0;
+  --color-accent-500: #c5875a;
+  --color-accent-600: #a86e43;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream font-sans text-ink antialiased;
+}
+
+/* Tipografia padrão do conteúdo longo (posts e páginas de serviço) */
+.prose-site {
+  @apply text-[1.0625rem] leading-relaxed;
+}
+.prose-site h2 {
+  @apply mt-10 mb-4 font-serif text-2xl font-semibold text-brand-800;
+}
+.prose-site h3 {
+  @apply mt-8 mb-3 font-serif text-xl font-semibold text-brand-800;
+}
+.prose-site p {
+  @apply mb-5;
+}
+.prose-site ul,
+.prose-site ol {
+  @apply mb-5 ml-6 space-y-2;
+}
+.prose-site ul {
+  @apply list-disc;
+}
+.prose-site ol {
+  @apply list-decimal;
+}
+.prose-site a {
+  @apply font-medium text-brand-600 underline decoration-brand-300 underline-offset-2 hover:text-brand-800;
+}
+.prose-site strong {
+  @apply font-semibold text-brand-900;
+}
+.prose-site blockquote {
+  @apply my-6 border-l-4 border-brand-200 pl-4 italic text-brand-800;
+}
+.prose-site table {
+  @apply mb-6 w-full border-collapse text-sm;
+}
+.prose-site th {
+  @apply border border-brand-200 bg-brand-50 px-3 py-2 text-left font-semibold;
+}
+.prose-site td {
+  @apply border border-brand-200 px-3 py-2 align-top;
+}

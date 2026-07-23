@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CONTACT, PROFESSIONAL } from '../lib/constants';
+---
+
+<BaseLayout
+  title="Política de Privacidade | Julia Dias Tozato"
+  description="Política de privacidade do site de Julia Dias Tozato, psicóloga e neuropsicóloga em Santos-SP: como tratamos dados pessoais em conformidade com a LGPD."
+  path="/politica-de-privacidade"
+>
+  <article class="prose-site mx-auto max-w-3xl px-4 py-10">
+    <h1 class="mb-6 font-serif text-3xl font-semibold text-brand-900">Política de Privacidade</h1>
+
+    <p>
+      Esta política descreve como os dados pessoais de visitantes são tratados neste site, em
+      conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018).
+    </p>
+
+    <h2>Quais dados coletamos</h2>
+    <ul>
+      <li>
+        <strong>Dados de navegação:</strong> este site pode utilizar ferramentas de análise de
+        audiência (como o Google Analytics) que coletam dados anônimos de visita — páginas acessadas,
+        tempo de permanência e origem do acesso — para melhorar o conteúdo;
+      </li>
+      <li>
+        <strong>Dados de contato:</strong> quando você inicia uma conversa pelo WhatsApp, seus dados
+        são tratados diretamente no aplicativo, conforme a política de privacidade do próprio
+        WhatsApp. Este site não armazena mensagens.
+      </li>
+    </ul>
+
+    <h2>O que não fazemos</h2>
+    <ul>
+      <li>Não vendemos nem compartilhamos dados pessoais com terceiros para fins comerciais;</li>
+      <li>Não coletamos dados sensíveis pelo site;</li>
+      <li>Nenhuma informação clínica é tratada por este site — o sigilo do atendimento é garantido pelo Código de Ética Profissional do Psicólogo, no âmbito das sessões.</li>
+    </ul>
+
+    <h2>Seus direitos</h2>
+    <p>
+      Nos termos da LGPD, você pode solicitar informações sobre o tratamento dos seus dados, bem como
+      sua correção ou exclusão. Para isso, entre em contato pelo WhatsApp {CONTACT.phoneDisplay}.
+    </p>
+
+    <h2>Responsável</h2>
+    <p>{PROFESSIONAL.name} — {PROFESSIONAL.crp}.</p>
+
+    <p><em>Última atualização: julho de 2026.</em></p>
+  </article>
+</BaseLayout>

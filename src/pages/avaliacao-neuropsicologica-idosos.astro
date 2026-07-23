@@ -1,0 +1,123 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import type { FaqItem } from '../lib/seo';
+
+const faqs: FaqItem[] = [
+  {
+    question: 'Esquecer coisas é normal na terceira idade?',
+    answer:
+      'Um certo grau de lentidão para lembrar nomes ou onde deixou um objeto é esperado com o envelhecimento. O sinal de alerta é quando o esquecimento passa a atrapalhar tarefas do dia a dia — pagar contas, tomar remédios no horário certo, se perder em trajetos conhecidos. Nesses casos, vale investigar.',
+  },
+  {
+    question: 'A avaliação neuropsicológica diagnostica Alzheimer?',
+    answer:
+      'O diagnóstico de Alzheimer e de outras demências é médico, feito por neurologista ou geriatra, com apoio de exames de imagem. A avaliação neuropsicológica é uma das peças centrais desse processo: ela mede objetivamente memória, atenção e outras funções, ajudando a diferenciar o envelhecimento normal do comprometimento cognitivo leve e das demências, além de acompanhar a evolução ao longo do tempo.',
+  },
+  {
+    question: 'Com que idade vale a pena fazer essa avaliação?',
+    answer:
+      'Não existe uma idade mínima fixa — a indicação parte da queixa. Muitas famílias procuram a avaliação a partir dos 60-65 anos, quando notam mudanças na memória ou no comportamento do familiar, mas pessoas mais jovens com queixas cognitivas específicas também podem se beneficiar.',
+  },
+  {
+    question: 'A pessoa idosa consegue fazer os testes?',
+    answer:
+      'Sim. Os instrumentos utilizados em idosos são validados para essa faixa etária e aplicados no ritmo da pessoa, com pausas quando necessário. Quando há limitações sensoriais (visão, audição), a Julia adapta a aplicação para garantir um resultado confiável.',
+  },
+  {
+    question: 'Quem deve acompanhar o idoso na avaliação?',
+    answer:
+      'O ideal é que um familiar ou cuidador próximo participe da entrevista inicial, trazendo informações sobre mudanças percebidas no dia a dia — muitas vezes a própria pessoa não nota certas alterações tão claramente quanto quem convive com ela.',
+  },
+  {
+    question: 'O que fazer depois do laudo?',
+    answer:
+      'A devolutiva traz recomendações práticas: encaminhamento ao neurologista ou geriatra quando indicado, orientações para a rotina e a segurança do idoso, e, quando fizer sentido, reabilitação neuropsicológica para estimular funções específicas.',
+  },
+  {
+    question: 'Quanto custa a avaliação neuropsicológica em idosos?',
+    answer:
+      'O valor varia conforme o número de sessões e a complexidade do caso, e é informado no primeiro contato, sem compromisso. Muitos planos de saúde reembolsam parte do valor mediante recibo — vale consultar o convênio da família.',
+  },
+];
+---
+
+<ServiceLayout
+  title="Avaliação Neuropsicológica em Idosos — Santos | Julia Tozato"
+  description="Avaliação neuropsicológica para idosos em Santos-SP: investigação de memória, atenção e diagnóstico precoce de declínio cognitivo e demências. Julia Tozato, CRP 06/176959."
+  h1="Avaliação Neuropsicológica em Idosos em Santos-SP"
+  intro="A avaliação neuropsicológica em idosos investiga, com testes padronizados e validados para a terceira idade, se as queixas de memória e atenção fazem parte do envelhecimento normal ou indicam um comprometimento cognitivo que merece atenção médica. Quanto mais cedo a causa é identificada, maiores as chances de intervenção eficaz — para a pessoa idosa e para quem cuida dela."
+  path="/avaliacao-neuropsicologica-idosos"
+  serviceName="Avaliação Neuropsicológica em Idosos"
+  breadcrumbLabel="Avaliação Neuropsicológica em Idosos"
+  faqs={faqs}
+  ctaHeading="Notou mudanças na memória de um familiar?"
+  ctaText="Fale com a Julia pelo WhatsApp para entender se a avaliação neuropsicológica é o próximo passo indicado."
+>
+  <h2>Esquecimento normal ou sinal de alerta?</h2>
+  <p>
+    Com o envelhecimento, é esperado levar um pouco mais de tempo para lembrar um nome ou repetir uma
+    pergunta ocasionalmente. O que diferencia isso de um sinal de alerta é o <strong>impacto na
+    autonomia</strong>:
+  </p>
+  <ul>
+    <li>Esquecer compromissos ou repetir a mesma pergunta várias vezes no mesmo dia;</li>
+    <li>Dificuldade para seguir uma receita, pagar contas ou controlar o próprio dinheiro;</li>
+    <li>Se perder em trajetos conhecidos ou confundir o dia, o mês ou onde está;</li>
+    <li>Dificuldade para encontrar palavras comuns durante uma conversa;</li>
+    <li>Mudanças de humor, apatia ou desinteresse por atividades que antes davam prazer;</li>
+    <li>Dificuldade crescente para realizar tarefas que sempre foram automáticas (cozinhar, se vestir).</li>
+  </ul>
+  <p>
+    Nenhum desses sinais, isolado, fecha um diagnóstico — mas juntos, e especialmente quando
+    representam uma <strong>mudança em relação ao que a pessoa sempre foi</strong>, justificam uma
+    avaliação.
+  </p>
+
+  <h2>Como funciona a avaliação em idosos</h2>
+  <ol>
+    <li>
+      <strong>Entrevista com a família</strong> — além da conversa com o idoso, um familiar ou
+      cuidador relata as mudanças observadas no dia a dia, informação essencial para o diagnóstico
+      diferencial;
+    </li>
+    <li>
+      <strong>Sessões de testagem adaptadas</strong> — instrumentos validados para a terceira idade,
+      aplicados no ritmo da pessoa, com pausas e adaptações para limitações sensoriais quando
+      necessário;
+    </li>
+    <li>
+      <strong>Avaliação de humor</strong> — depressão em idosos pode se manifestar como esquecimento e
+      lentidão, por isso é sempre investigada junto às funções cognitivas;
+    </li>
+    <li>
+      <strong>Análise e integração</strong> — comparação do desempenho com o esperado para a idade e a
+      escolaridade, cruzando com o histórico de saúde;
+    </li>
+    <li>
+      <strong>Devolutiva à família</strong> — resultados explicados com clareza e acolhimento, com
+      espaço para todas as dúvidas;
+    </li>
+    <li>
+      <strong>Laudo com encaminhamento</strong>, quando indicado, ao neurologista ou geriatra que
+      conduzirá a investigação médica complementar.
+    </li>
+  </ol>
+
+  <h2>Por que o diagnóstico precoce importa</h2>
+  <p>
+    Comprometimento cognitivo leve, depressão, deficiências de vitaminas, problemas de tireoide e
+    quadros demenciais podem começar com sintomas parecidos. Diferenciar essas causas cedo muda o
+    tratamento: algumas são reversíveis, outras se beneficiam de intervenções que retardam a
+    progressão. Mesmo quando o quadro é degenerativo, identificar cedo dá tempo para a família se
+    organizar, buscar suporte e adaptar a rotina com mais tranquilidade.
+  </p>
+
+  <h2>Reabilitação neuropsicológica: e depois?</h2>
+  <p>
+    Quando indicada, a reabilitação neuropsicológica trabalha, por meio de exercícios estruturados, as
+    funções que mais impactam a autonomia — memória, atenção e orientação. O objetivo não é reverter
+    uma condição degenerativa, mas preservar o máximo de independência e qualidade de vida pelo maior
+    tempo possível. A avaliação completa está descrita na página de
+    <a href="/avaliacao-neuropsicologica">avaliação neuropsicológica em Santos</a>.
+  </p>
+</ServiceLayout>

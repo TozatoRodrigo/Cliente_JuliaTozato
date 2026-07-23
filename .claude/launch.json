@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site-julia",
+      "runtimeExecutable": "/Users/rodrigodiastozato/.nvm/versions/node/v22.23.1/bin/node",
+      "runtimeArgs": ["node_modules/.bin/astro", "dev", "--port", "4325"],
+      "port": 4325
+    }
+  ]
+}

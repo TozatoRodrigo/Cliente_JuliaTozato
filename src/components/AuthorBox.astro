@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import { PROFESSIONAL } from '../lib/constants';
+import juliaPortrait from '../assets/images/julia-dias-tozato-psicologa-neuropsicologa-santos.jpg';
+---
+
+<aside class="mt-12 flex items-start gap-4 rounded-2xl border border-brand-100 bg-brand-50 p-6">
+  <Image
+    src={juliaPortrait}
+    alt="Julia Dias Tozato, psicóloga e neuropsicóloga"
+    width={128}
+    height={128}
+    class="h-16 w-16 shrink-0 rounded-full object-cover object-top ring-2 ring-brand-200"
+  />
+  <div class="text-sm leading-relaxed">
+    <p class="font-semibold text-brand-900">
+      {PROFESSIONAL.name} · {PROFESSIONAL.crp}
+    </p>
+    <p class="mt-1 text-ink/80">{PROFESSIONAL.entitySentence}</p>
+    <a href="/sobre" class="mt-2 inline-block font-medium text-brand-700 hover:underline">
+      Conheça a Julia →
+    </a>
+  </div>
+</aside>

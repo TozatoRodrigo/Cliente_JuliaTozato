@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import PostCard from '../../../components/PostCard.astro';
+import { BLOG_CATEGORIES, type BlogCategory } from '../../../lib/constants';
+import { breadcrumbSchema } from '../../../lib/seo';
+
+export async function getStaticPaths() {
+  return (Object.keys(BLOG_CATEGORIES) as BlogCategory[]).map((categoria) => ({
+    params: { categoria },
+  }));
+}
+
+const { categoria } = Astro.params as { categoria: BlogCategory };
+const label = BLOG_CATEGORIES[categoria];
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft && data.category === categoria)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const path = `/blog/categoria/${categoria}`;
+const breadcrumbs = [
+  { name: 'Início', path: '/' },
+  { name: 'Blog', path: '/blog' },
+  { name: label, path },
+];
+---
+
+<BaseLayout
+  title={`${label} — Artigos | Blog Julia Dias Tozato`}
+  description={`Artigos sobre ${label.toLowerCase()} escritos pela psicóloga e neuropsicóloga Julia Dias Tozato (CRP 06/176959), de Santos-SP. Conteúdo confiável e acessível.`}
+  path={path}
+  schemas={[breadcrumbSchema(breadcrumbs)]}
+>
+  <section class="mx-auto max-w-6xl px-4 py-10">
+    <Breadcrumbs items={breadcrumbs} />
+    <h1 class="font-serif text-3xl font-semibold text-brand-900 sm:text-4xl">{label}</h1>
+
+    {
+      posts.length > 0 ? (
+        <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => (
+            <PostCard post={post} />
+          ))}
+        </div>
+      ) : (
+        <p class="mt-8 text-ink/80">
+          Ainda não há artigos nesta categoria. <a class="font-semibold text-brand-700 hover:underline" href="/blog">Veja todos os artigos →</a>
+        </p>
+      )
+    }
+  </section>
+</BaseLayout>

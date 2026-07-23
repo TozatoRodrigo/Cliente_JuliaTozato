@@ -1,0 +1,149 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import type { FaqItem } from '../lib/seo';
+
+const faqs: FaqItem[] = [
+  {
+    question: 'O que é uma avaliação neuropsicológica?',
+    answer:
+      'É um exame detalhado das funções cognitivas — atenção, memória, linguagem, raciocínio e funções executivas — realizado por meio de testes padronizados, entrevistas e observação clínica. O resultado é um laudo que descreve o funcionamento cognitivo da pessoa e orienta diagnóstico e tratamento.',
+  },
+  {
+    question: 'Quanto tempo dura o processo completo?',
+    answer:
+      'Em geral, de 4 a 8 encontros, incluindo entrevista inicial, sessões de testagem e a devolutiva com entrega do laudo. O número exato varia conforme a idade e a complexidade de cada caso.',
+  },
+  {
+    question: 'Preciso de encaminhamento médico para fazer a avaliação?',
+    answer:
+      'Não é obrigatório. Muitas pessoas procuram a avaliação por conta própria. Quando há encaminhamento de neurologista, psiquiatra ou pediatra, ele ajuda a direcionar as perguntas que a avaliação deve responder.',
+  },
+  {
+    question: 'A avaliação neuropsicológica dá diagnóstico?',
+    answer:
+      'O laudo neuropsicológico descreve o perfil cognitivo e levanta hipóteses diagnósticas com forte embasamento. O diagnóstico formal de condições como TDAH e TEA é multidisciplinar — o laudo é uma das peças centrais, usado pelo médico para fechar a conclusão.',
+  },
+  {
+    question: 'Para que serve o laudo? Onde ele é aceito?',
+    answer:
+      'O laudo orienta tratamentos, fundamenta adaptações escolares e acadêmicas, apoia solicitações de direitos previstos em lei e acompanha processos médicos e, em alguns casos, jurídicos e periciais.',
+  },
+  {
+    question: 'Crianças conseguem fazer os testes?',
+    answer:
+      'Sim. Existem instrumentos específicos por faixa etária e a testagem infantil é conduzida de forma lúdica, muitas vezes com jogos, respeitando o ritmo da criança.',
+  },
+  {
+    question: 'Quanto custa uma avaliação neuropsicológica em Santos?',
+    answer:
+      'O valor varia conforme o número de sessões e a complexidade do caso, e é informado no primeiro contato. Muitos planos de saúde reembolsam parte do valor mediante recibo — vale consultar o seu convênio.',
+  },
+  {
+    question: 'A avaliação pode ser feita online?',
+    answer:
+      'Algumas etapas, como entrevistas e devolutiva, podem ocorrer por videochamada. A testagem em si costuma ser presencial, porque muitos instrumentos exigem aplicação controlada. Cada caso é avaliado individualmente.',
+  },
+];
+---
+
+<ServiceLayout
+  title="Avaliação Neuropsicológica em Santos | Julia Dias Tozato"
+  description="Avaliação neuropsicológica em Santos-SP com a neuropsicóloga Julia Dias Tozato (CRP 06/176959): atenção, memória, TDAH, TEA e dificuldades de aprendizagem. Laudo completo."
+  h1="Avaliação Neuropsicológica em Santos-SP"
+  intro="A avaliação neuropsicológica é um exame detalhado de como o cérebro sustenta funções como atenção, memória, linguagem e raciocínio. Por meio de testes padronizados, entrevistas e observação clínica, ela identifica pontos fortes e dificuldades cognitivas — e resulta em um laudo que orienta diagnósticos, tratamentos e adaptações escolares ou de trabalho."
+  path="/avaliacao-neuropsicologica"
+  serviceName="Avaliação Neuropsicológica"
+  breadcrumbLabel="Avaliação Neuropsicológica"
+  faqs={faqs}
+  ctaHeading="Precisa de uma avaliação neuropsicológica?"
+  ctaText="Converse com a Julia pelo WhatsApp: ela explica o processo, os valores e encontra o melhor horário para começar."
+>
+  <h2>Quando a avaliação neuropsicológica é indicada?</h2>
+  <p>
+    A avaliação é indicada sempre que existe uma dúvida sobre o funcionamento cognitivo — em qualquer
+    idade. As situações mais comuns no consultório são:
+  </p>
+  <ul>
+    <li>
+      <strong>Suspeita de TDAH</strong> em crianças, adolescentes ou adultos — desatenção,
+      impulsividade, dificuldade de organização (<a href="/avaliacao-tdah">saiba como funciona a avaliação de TDAH</a>);
+    </li>
+    <li>
+      <strong>Sinais do Transtorno do Espectro Autista (TEA)</strong>, inclusive apresentações sutis
+      que passaram despercebidas na infância (<a href="/avaliacao-tea">avaliação de autismo</a>);
+    </li>
+    <li>
+      <strong>Dificuldades escolares persistentes</strong> — suspeita de dislexia, discalculia ou
+      outros transtornos de aprendizagem (<a href="/dificuldades-de-aprendizagem">avaliação de dificuldades de aprendizagem</a>);
+    </li>
+    <li>
+      <strong>Queixas de memória e concentração</strong> em adultos e idosos, incluindo a
+      diferenciação entre esquecimento normal e sinais de alerta;
+    </li>
+    <li>
+      <strong>Investigação de altas habilidades/superdotação</strong>;
+    </li>
+    <li>
+      <strong>Acompanhamento após condições neurológicas</strong> — AVC, traumatismo craniano,
+      epilepsia — para mapear o impacto cognitivo e orientar a reabilitação.
+    </li>
+  </ul>
+
+  <h2>Como funciona o processo, passo a passo</h2>
+  <ol>
+    <li>
+      <strong>Contato inicial</strong> — você explica a sua necessidade pelo WhatsApp e a Julia
+      orienta se a avaliação é o caminho adequado.
+    </li>
+    <li>
+      <strong>Entrevista de anamnese</strong> — um encontro para conhecer a história de vida, de
+      saúde e as queixas atuais. No caso de crianças, os pais participam; a escola também pode
+      contribuir com informações.
+    </li>
+    <li>
+      <strong>Sessões de testagem</strong> — aplicação de testes padronizados e validados para a
+      população brasileira, selecionados conforme a idade e a pergunta que a avaliação precisa
+      responder. Costumam ser 2 a 4 sessões.
+    </li>
+    <li>
+      <strong>Análise e integração dos dados</strong> — a Julia corrige e interpreta os resultados,
+      cruzando testes, histórico e observação clínica.
+    </li>
+    <li>
+      <strong>Devolutiva</strong> — um encontro para apresentar os resultados em linguagem clara,
+      com espaço para todas as dúvidas.
+    </li>
+    <li>
+      <strong>Entrega do laudo</strong> — documento completo com os resultados, conclusões e
+      recomendações práticas para tratamento, escola e família.
+    </li>
+  </ol>
+
+  <h2>O que o laudo neuropsicológico contém?</h2>
+  <p>
+    O laudo é um documento técnico assinado, com validade em contextos médicos, escolares e
+    jurídicos. Ele descreve o motivo da avaliação, os instrumentos utilizados, o desempenho em cada
+    função cognitiva, as conclusões e — talvez a parte mais importante — as
+    <strong> recomendações individualizadas</strong>: que tipo de tratamento buscar, que adaptações a
+    escola pode fazer, que estratégias usar no dia a dia.
+  </p>
+
+  <h2>Quanto custa uma avaliação neuropsicológica?</h2>
+  <p>
+    O valor varia conforme o número de sessões, a idade e a complexidade do caso, por isso é informado
+    no primeiro contato, sem compromisso. Em geral, o que compõe o investimento são os testes
+    padronizados aplicados, as horas de correção e análise entre uma sessão e outra, e a redação do
+    laudo final — não apenas os encontros presenciais. Muitos planos de saúde reembolsam parte do
+    valor mediante recibo; vale consultar diretamente o seu convênio antes de começar.
+  </p>
+
+  <h2>Avaliação em todas as idades</h2>
+  <p>
+    A Julia realiza avaliações de crianças, adolescentes, adultos e idosos, sempre com instrumentos
+    adequados a cada faixa etária. Com crianças, o processo é conduzido de forma lúdica — jogos fazem
+    parte do repertório de avaliação e estimulação, tornando os encontros leves. Conheça também o
+    trabalho de <a href="/neuropsicologia-infantil">neuropsicologia infantil</a> e a
+    <a href="/avaliacao-neuropsicologica-idosos">avaliação neuropsicológica em idosos</a>, indicada para
+    investigar queixas de memória e diferenciar o envelhecimento normal de sinais de alerta.
+  </p>
+</ServiceLayout>

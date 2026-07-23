@@ -1,0 +1,99 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import type { FaqItem } from '../lib/seo';
+
+const faqs: FaqItem[] = [
+  {
+    question: 'Como saber se é dislexia ou só uma fase?',
+    answer:
+      'Dificuldades pontuais são comuns no início da alfabetização. O sinal de alerta é a persistência: quando a criança segue com muita dificuldade de ler e escrever apesar do ensino adequado e do esforço, a avaliação é indicada para investigar dislexia e outras causas.',
+  },
+  {
+    question: 'O que é discalculia?',
+    answer:
+      'É um transtorno específico da aprendizagem que afeta o raciocínio numérico: entender quantidades, memorizar fatos matemáticos e realizar cálculos. Não tem relação com inteligência — a criança pode ir muito bem em outras áreas.',
+  },
+  {
+    question: 'A escola pode exigir o laudo?',
+    answer:
+      'A escola não pode condicionar a matrícula ao laudo, mas o documento é o que fundamenta adaptações pedagógicas formais — como avaliações adaptadas e estratégias específicas em sala. Ele é um aliado da família no diálogo com a escola.',
+  },
+  {
+    question: 'A avaliação diferencia dificuldade de transtorno?',
+    answer:
+      'Sim — essa é uma das suas principais funções. Nem toda dificuldade escolar é um transtorno: questões emocionais, pedagógicas, de visão/audição ou TDAH podem estar por trás. A avaliação identifica a causa para direcionar a ajuda certa.',
+  },
+  {
+    question: 'Depois do laudo, o que fazer?',
+    answer:
+      'A devolutiva traz um plano claro: orientações para a escola, indicação de terapias (fonoaudiologia, psicopedagogia, reabilitação neuropsicológica) e estratégias para os estudos em casa.',
+  },
+  {
+    question: 'Quanto custa a avaliação de dificuldades de aprendizagem?',
+    answer:
+      'O valor varia conforme o número de sessões e o escopo do caso — incluindo contato com a escola, quando autorizado. É informado no primeiro contato, e muitos planos de saúde reembolsam parte mediante recibo.',
+  },
+];
+---
+
+<ServiceLayout
+  title="Dificuldades de Aprendizagem — Avaliação em Santos | Julia Tozato"
+  description="Seu filho tem dificuldade para ler, escrever ou calcular? Avaliação neuropsicológica de dislexia, discalculia e transtornos de aprendizagem em Santos-SP. CRP 06/176959."
+  h1="Avaliação de Dificuldades de Aprendizagem em Santos"
+  intro="Quando a dificuldade escolar persiste apesar do esforço da criança e da escola, é hora de investigar a causa. A avaliação neuropsicológica identifica se existe um transtorno específico de aprendizagem — como dislexia ou discalculia —, outra condição (como TDAH) ou fatores emocionais e pedagógicos, e indica exatamente que tipo de apoio a criança precisa."
+  path="/dificuldades-de-aprendizagem"
+  serviceName="Avaliação de Dificuldades de Aprendizagem"
+  breadcrumbLabel="Dificuldades de Aprendizagem"
+  faqs={faqs}
+  ctaHeading="Preocupado com o rendimento escolar do seu filho?"
+  ctaText="Converse com a Julia pelo WhatsApp: ela orienta se a avaliação é o caminho e como funciona o processo."
+>
+  <h2>Sinais de alerta por área</h2>
+  <ul>
+    <li>
+      <strong>Leitura e escrita (possível dislexia):</strong> troca ou omissão de letras persistente,
+      leitura muito lenta ou com esforço, dificuldade de compreender o que leu, evitação de tarefas
+      com texto;
+    </li>
+    <li>
+      <strong>Matemática (possível discalculia):</strong> dificuldade com noção de quantidade,
+      dependência dos dedos para cálculos simples além da idade esperada, confusão com símbolos e
+      tabuada;
+    </li>
+    <li>
+      <strong>Atenção e organização (possível TDAH):</strong> a criança até aprende, mas se perde nas
+      tarefas, esquece materiais e não termina o que começa — nesse caso, veja a página de
+      <a href="/avaliacao-tdah">avaliação de TDAH</a>;
+    </li>
+    <li>
+      <strong>Sinais emocionais associados:</strong> recusa de ir à escola, "dor de barriga" em dia de
+      prova, frases como "eu sou burro" — a autoestima costuma ser a primeira vítima da dificuldade
+      não compreendida.
+    </li>
+  </ul>
+
+  <h2>Como funciona a avaliação</h2>
+  <ol>
+    <li><strong>Entrevista com os pais</strong> — história do desenvolvimento, da alfabetização e das queixas;</li>
+    <li><strong>Contato com a escola</strong> (com autorização da família) — professores trazem observações valiosas do dia a dia;</li>
+    <li><strong>Sessões lúdicas de testagem</strong> — instrumentos padronizados de leitura, escrita, matemática, atenção, memória e raciocínio, adequados à idade;</li>
+    <li><strong>Devolutiva para a família</strong> em linguagem clara, com plano de ação;</li>
+    <li><strong>Laudo com recomendações específicas</strong> para escola, terapias e rotina de estudos.</li>
+  </ol>
+
+  <h2>Por que investigar cedo faz diferença</h2>
+  <p>
+    Quanto antes a causa é identificada, menor o impacto na autoestima e na trajetória escolar.
+    Uma criança com dislexia que recebe apoio adequado aprende a ler por caminhos alternativos;
+    uma criança com TDAH tratado recupera o prazer de aprender. O primeiro passo é entender —
+    e é exatamente isso que a avaliação faz. Conheça também a página de
+    <a href="/neuropsicologia-infantil">neuropsicologia infantil</a>.
+  </p>
+
+  <h2>Quanto custa a avaliação?</h2>
+  <p>
+    O investimento varia conforme o número de sessões e o escopo do caso — muitas vezes ampliado pelo
+    contato com a escola e pela devolutiva conjunta com a família. O valor é sempre informado no
+    primeiro contato, e vale consultar o plano de saúde: o reembolso mediante recibo é comum.
+  </p>
+</ServiceLayout>

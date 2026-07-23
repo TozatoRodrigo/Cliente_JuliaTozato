@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PostCard from '../../components/PostCard.astro';
+import { BLOG_CATEGORIES } from '../../lib/constants';
+import { breadcrumbSchema } from '../../lib/seo';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const breadcrumbs = [
+  { name: 'Início', path: '/' },
+  { name: 'Blog', path: '/blog' },
+];
+---
+
+<BaseLayout
+  title="Blog de Psicologia e Neuropsicologia | Julia Dias Tozato"
+  description="Artigos sobre saúde mental, avaliação neuropsicológica, TDAH, autismo e aprendizagem, escritos pela psicóloga e neuropsicóloga Julia Dias Tozato (CRP 06/176959)."
+  path="/blog"
+  schemas={[breadcrumbSchema(breadcrumbs)]}
+>
+  <section class="mx-auto max-w-6xl px-4 py-10">
+    <Breadcrumbs items={breadcrumbs} />
+    <h1 class="font-serif text-3xl font-semibold text-brand-900 sm:text-4xl">Blog</h1>
+    <p class="mt-3 max-w-2xl text-lg text-ink/85">
+      Conteúdo confiável sobre saúde mental, neuropsicologia e desenvolvimento — escrito pela Julia,
+      em linguagem acessível.
+    </p>
+
+    <div class="mt-6 flex flex-wrap gap-2">
+      {
+        Object.entries(BLOG_CATEGORIES).map(([slug, label]) => (
+          <a
+            href={`/blog/categoria/${slug}`}
+            class="rounded-full border border-brand-200 bg-white px-4 py-1.5 text-sm font-medium text-brand-800 hover:bg-brand-50"
+          >
+            {label}
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+</BaseLayout>

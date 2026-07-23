@@ -1,0 +1,27 @@
+# Julia Dias Tozato — Psicóloga e Neuropsicóloga
+
+> Julia Dias Tozato é psicóloga e neuropsicóloga (CRP 06/176959) com atendimento presencial em
+> Santos-SP, no CNP – Centro de Neuropsicologia e Psicologia (Av. Conselheiro Nébias, 628 – Cj.
+> 34/35, Boqueirão), e atendimento online para todo o Brasil. Graduada em Psicologia pela
+> Universidade Católica de Santos (UniSantos), tem formação em Neuropsicologia pelo Hospital
+> Israelita Albert Einstein e é especialista em Terapia Cognitivo-Comportamental (TCC) e Análise do
+> Comportamento. Atua também como supervisora clínica. Contato/agendamento: WhatsApp +55 13 99660-7711.
+
+## Serviços
+
+- [Avaliação Neuropsicológica em Santos](/avaliacao-neuropsicologica): exame completo de atenção, memória, linguagem e funções executivas, com laudo. Crianças, adolescentes, adultos e idosos.
+- [Avaliação de TDAH](/avaliacao-tdah): investigação de TDAH em crianças e adultos com testes padronizados.
+- [Avaliação de Autismo (TEA)](/avaliacao-tea): investigação de TEA, incluindo nível 1 de suporte, em todas as idades.
+- [Dificuldades de Aprendizagem](/dificuldades-de-aprendizagem): avaliação de dislexia, discalculia e transtornos de aprendizagem.
+- [Neuropsicologia Infantil](/neuropsicologia-infantil): avaliação e estimulação cognitiva lúdica, com jogos.
+- [Avaliação Neuropsicológica em Idosos](/avaliacao-neuropsicologica-idosos): investigação de memória e atenção na terceira idade, diagnóstico precoce de declínio cognitivo e demências.
+- [Terapia para Adultos](/terapia-para-adultos): psicoterapia individual, presencial em Santos ou online.
+- [Terapia para Adolescentes](/terapia-para-adolescentes): acompanhamento psicológico de adolescentes.
+- [Terapia Online](/terapia-online): psicoterapia por videochamada para todo o Brasil, regulamentada pelo CFP.
+
+## Informações práticas
+
+- [Consultório](/consultorio): endereço, horários e como chegar.
+- [Dúvidas Frequentes](/duvidas-frequentes): valores, agendamento, sigilo, duração das sessões.
+- [Sobre](/sobre): formação e abordagem profissional.
+- [Blog](/blog): artigos sobre neuropsicologia, TDAH, TEA, ansiedade e aprendizagem.

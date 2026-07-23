@@ -1,0 +1,84 @@
+---
+import { ADDRESS, BLOG_CATEGORIES, CONTACT, OPENING_HOURS, PROFESSIONAL } from '../lib/constants';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-16 border-t border-brand-100 bg-brand-900 text-brand-100">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <p class="font-serif text-lg font-semibold text-white">Julia Dias Tozato</p>
+      <p class="mt-1 text-sm text-brand-200">Psicóloga e Neuropsicóloga · {PROFESSIONAL.crp}</p>
+      <p class="mt-4 text-sm leading-relaxed">{PROFESSIONAL.entitySentence}</p>
+    </div>
+
+    <div>
+      <p class="text-sm font-semibold tracking-wide text-white uppercase">Serviços</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a class="hover:text-white" href="/avaliacao-neuropsicologica">Avaliação Neuropsicológica</a></li>
+        <li><a class="hover:text-white" href="/avaliacao-tdah">Avaliação de TDAH</a></li>
+        <li><a class="hover:text-white" href="/avaliacao-tea">Avaliação de Autismo (TEA)</a></li>
+        <li><a class="hover:text-white" href="/neuropsicologia-infantil">Neuropsicologia Infantil</a></li>
+        <li><a class="hover:text-white" href="/avaliacao-neuropsicologica-idosos">Avaliação Neuropsicológica em Idosos</a></li>
+        <li><a class="hover:text-white" href="/terapia-para-adultos">Terapia para Adultos</a></li>
+        <li><a class="hover:text-white" href="/terapia-para-adolescentes">Terapia para Adolescentes</a></li>
+        <li><a class="hover:text-white" href="/terapia-online">Terapia Online</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-sm font-semibold tracking-wide text-white uppercase">Blog</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        {
+          Object.entries(BLOG_CATEGORIES).map(([slug, label]) => (
+            <li>
+              <a class="hover:text-white" href={`/blog/categoria/${slug}`}>
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-sm font-semibold tracking-wide text-white uppercase">Contato e endereço</p>
+      <address class="mt-3 space-y-2 text-sm not-italic">
+        <p>{ADDRESS.clinicName}</p>
+        <p>
+          {ADDRESS.street} – {ADDRESS.unit}
+          <br />
+          {ADDRESS.neighborhood}, {ADDRESS.city}/{ADDRESS.state} · CEP {ADDRESS.postalCode}
+        </p>
+        <p>{OPENING_HOURS}</p>
+        <p>
+          <a
+            class="font-medium text-white underline underline-offset-2"
+            href={CONTACT.whatsappUrl}
+            target="_blank"
+            rel="noopener"
+            data-umami-event="whatsapp-click"
+            data-umami-event-page="footer"
+          >
+            WhatsApp {CONTACT.phoneDisplay}
+          </a>
+        </p>
+        <p>
+          <a class="hover:text-white" href={ADDRESS.mapsUrl} target="_blank" rel="noopener">Ver no Google Maps</a>
+          ·
+          <a class="hover:text-white" href={CONTACT.instagramUrl} target="_blank" rel="noopener">Instagram</a>
+        </p>
+      </address>
+    </div>
+  </div>
+
+  <div class="border-t border-brand-800">
+    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-brand-300 sm:flex-row sm:items-center sm:justify-between">
+      <p>© {year} {PROFESSIONAL.name} · {PROFESSIONAL.crp}. Todos os direitos reservados.</p>
+      <p>
+        <a class="hover:text-white" href="/politica-de-privacidade">Política de Privacidade</a>
+        · Conteúdo informativo — não substitui avaliação profissional.
+      </p>
+    </div>
+  </div>
+</footer>

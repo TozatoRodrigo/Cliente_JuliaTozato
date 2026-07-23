@@ -1,0 +1,97 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import type { FaqItem } from '../lib/seo';
+
+const faqs: FaqItem[] = [
+  {
+    question: 'Existe um exame que detecta TDAH?',
+    answer:
+      'Não existe exame de imagem ou de sangue para TDAH. O diagnóstico é clínico e multidisciplinar, e a avaliação neuropsicológica é o instrumento que mede objetivamente atenção, controle inibitório e funções executivas, dando base sólida para a conclusão diagnóstica.',
+  },
+  {
+    question: 'Adulto pode descobrir TDAH agora?',
+    answer:
+      'Sim, e é muito comum. Muitos adultos passaram a vida sendo chamados de distraídos ou desorganizados e só investigam o TDAH quando as demandas de trabalho ou estudo aumentam. A avaliação em adultos considera a história desde a infância.',
+  },
+  {
+    question: 'Com que idade uma criança pode ser avaliada para TDAH?',
+    answer:
+      'Em geral, a partir dos 6 anos a testagem se torna mais confiável, porque as funções avaliadas já estão em desenvolvimento mensurável. Antes disso, é possível fazer uma avaliação do desenvolvimento e orientar a família.',
+  },
+  {
+    question: 'O que diferencia TDAH de ansiedade ou de desmotivação?',
+    answer:
+      'Ansiedade, depressão e até sobrecarga podem causar desatenção parecida com TDAH. A avaliação neuropsicológica é justamente o processo que diferencia essas causas, analisando o padrão das dificuldades e a história de vida.',
+  },
+  {
+    question: 'Depois do laudo, qual é o próximo passo?',
+    answer:
+      'A devolutiva inclui recomendações práticas: encaminhamento médico quando indicado, estratégias de organização, orientações para a escola ou trabalho e, se fizer sentido, psicoterapia ou reabilitação neuropsicológica.',
+  },
+  {
+    question: 'Quanto custa a avaliação de TDAH em Santos?',
+    answer:
+      'O valor segue o mesmo critério da avaliação neuropsicológica completa — varia conforme o número de sessões e a complexidade do caso, e é informado no primeiro contato pelo WhatsApp. Muitos planos de saúde reembolsam parte do valor mediante recibo.',
+  },
+];
+---
+
+<ServiceLayout
+  title="Avaliação de TDAH em Santos — Crianças e Adultos | Julia Tozato"
+  description="Suspeita de TDAH? Avaliação neuropsicológica especializada em Santos-SP para crianças, adolescentes e adultos, com testes padronizados e laudo completo. Julia Tozato, CRP 06/176959."
+  h1="Avaliação de TDAH em Santos: crianças, adolescentes e adultos"
+  intro="O TDAH (Transtorno do Déficit de Atenção com Hiperatividade) é diagnosticado clinicamente — e a avaliação neuropsicológica é o exame que mede, com testes padronizados, as funções afetadas por ele: atenção sustentada, controle de impulsos, memória de trabalho e organização. O resultado é um laudo que confirma ou descarta a hipótese e orienta o tratamento."
+  path="/avaliacao-tdah"
+  serviceName="Avaliação Neuropsicológica de TDAH"
+  breadcrumbLabel="Avaliação de TDAH"
+  faqs={faqs}
+  ctaHeading="Suspeita de TDAH?"
+  ctaText="Converse com a Julia pelo WhatsApp e entenda se a avaliação é o próximo passo para você ou para seu filho."
+>
+  <h2>Sinais que costumam motivar a avaliação</h2>
+  <p><strong>Em crianças e adolescentes:</strong></p>
+  <ul>
+    <li>Dificuldade de manter a atenção em aula e nas tarefas, mesmo nas que gosta de começar;</li>
+    <li>Agitação constante, dificuldade de esperar a vez, respostas impulsivas;</li>
+    <li>Esquecimentos frequentes de materiais, prazos e combinados;</li>
+    <li>Notas abaixo do potencial percebido pela família e pelos professores;</li>
+    <li>Queixas repetidas da escola sobre comportamento ou rendimento.</li>
+  </ul>
+  <p><strong>Em adultos:</strong></p>
+  <ul>
+    <li>Sensação constante de estar "devendo" — tarefas adiadas, prazos estourados;</li>
+    <li>Dificuldade de concluir o que começa e de organizar rotinas;</li>
+    <li>Distração em reuniões e conversas, perda de objetos, esquecimentos;</li>
+    <li>Histórico escolar de "inteligente, mas disperso";</li>
+    <li>Cansaço mental por precisar de muito esforço para fazer o que parece simples para os outros.</li>
+  </ul>
+
+  <h2>Como funciona a avaliação de TDAH</h2>
+  <p>
+    O processo segue as etapas da <a href="/avaliacao-neuropsicologica">avaliação neuropsicológica completa</a>,
+    com foco nas funções tipicamente afetadas pelo TDAH:
+  </p>
+  <ol>
+    <li><strong>Anamnese detalhada</strong> — a história desde a infância é essencial, porque o TDAH é um transtorno do neurodesenvolvimento: os sinais precisam estar presentes desde cedo;</li>
+    <li><strong>Escalas padronizadas</strong> respondidas pela pessoa e, quando possível, por familiares e professores;</li>
+    <li><strong>Testes de atenção, funções executivas e memória de trabalho</strong>, que comparam o desempenho com o esperado para a idade;</li>
+    <li><strong>Diagnóstico diferencial</strong> — investigar se as dificuldades não são melhor explicadas por ansiedade, depressão, sobrecarga ou outra condição;</li>
+    <li><strong>Devolutiva e laudo</strong> com recomendações práticas e, quando indicado, encaminhamento para o médico que conduz o tratamento.</li>
+  </ol>
+
+  <h2>Por que o laudo faz diferença</h2>
+  <p>
+    Além de fundamentar o diagnóstico médico, o laudo dá acesso a adaptações concretas: tempo
+    adicional em provas e concursos (quando previsto em edital), estratégias personalizadas de estudo
+    e trabalho, e orientações específicas para a escola no caso de crianças —
+    veja também a página de <a href="/dificuldades-de-aprendizagem">dificuldades de aprendizagem</a>.
+  </p>
+
+  <h2>Quanto custa a avaliação de TDAH?</h2>
+  <p>
+    O investimento varia conforme a idade e o número de sessões necessárias, e é sempre explicado no
+    primeiro contato — sem surpresas. O valor cobre não só os encontros de testagem, mas as horas de
+    correção, análise e a redação do laudo. Vale consultar seu plano de saúde: o reembolso mediante
+    recibo é comum para avaliação psicológica/neuropsicológica.
+  </p>
+</ServiceLayout>

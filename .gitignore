@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# fotos originais (as otimizadas ficam em src/assets/images)
+Fotos/
+fotos/
+
+# logs de automacao local
+automation/logs/
+*.log
+
+# arquivos locais do Claude Code
+.claude/settings.local*.json
+.claude/*.lock

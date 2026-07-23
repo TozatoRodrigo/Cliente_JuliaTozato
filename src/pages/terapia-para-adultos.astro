@@ -1,0 +1,92 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import type { FaqItem } from '../lib/seo';
+
+const faqs: FaqItem[] = [
+  {
+    question: 'Com que frequência são as sessões?',
+    answer:
+      'O mais comum é uma sessão semanal, com duração aproximada de 50 minutos. A frequência pode ser ajustada conforme o momento e a necessidade de cada pessoa.',
+  },
+  {
+    question: 'Quanto tempo dura uma psicoterapia?',
+    answer:
+      'Não existe prazo fixo: depende dos objetivos e do processo de cada pessoa. Algumas questões pontuais evoluem em poucos meses; processos de autoconhecimento podem se estender. O andamento é conversado abertamente ao longo do caminho.',
+  },
+  {
+    question: 'Preciso estar "mal" para fazer terapia?',
+    answer:
+      'Não. A psicoterapia também é um espaço de autoconhecimento, desenvolvimento pessoal e prevenção. Muitas pessoas procuram terapia em momentos de decisão, transição de carreira ou simplesmente para se conhecerem melhor.',
+  },
+  {
+    question: 'Tudo o que eu disser é sigiloso?',
+    answer:
+      'Sim. O sigilo é garantido pelo Código de Ética Profissional do Psicólogo. O que é dito em sessão permanece em sessão, com raras exceções previstas em lei (risco grave à vida).',
+  },
+  {
+    question: 'Posso fazer as sessões online?',
+    answer:
+      'Sim. A psicoterapia online é regulamentada pelo Conselho Federal de Psicologia e tem eficácia comparável à presencial para a maioria das demandas. Veja a página de terapia online para detalhes.',
+  },
+  {
+    question: 'Quanto custa a psicoterapia?',
+    answer:
+      'O valor da sessão é informado no primeiro contato pelo WhatsApp. Muitos planos de saúde reembolsam parte do valor de sessões particulares mediante recibo — vale consultar o seu convênio.',
+  },
+];
+---
+
+<ServiceLayout
+  title="Psicóloga para Adultos em Santos | Julia Dias Tozato"
+  description="Psicoterapia para adultos em Santos-SP e online: ansiedade, depressão, estresse, autoconhecimento e transições de vida. Julia Dias Tozato, CRP 06/176959. Agende pelo WhatsApp."
+  h1="Terapia para Adultos em Santos e Online"
+  intro="A psicoterapia é um espaço protegido e sigiloso para olhar para o que pesa — ansiedade, tristeza, estresse, relacionamentos, decisões — com o apoio de uma profissional preparada. No consultório em Santos ou por videochamada, a Julia acompanha adultos em processos de cuidado emocional e autoconhecimento."
+  path="/terapia-para-adultos"
+  serviceName="Psicoterapia para Adultos"
+  breadcrumbLabel="Terapia para Adultos"
+  faqs={faqs}
+  ctaHeading="Pensando em começar terapia?"
+  ctaText="Envie uma mensagem pelo WhatsApp — sem compromisso — para tirar dúvidas e entender se é o momento."
+>
+  <h2>Motivos comuns para procurar terapia</h2>
+  <ul>
+    <li><strong>Ansiedade</strong> — preocupação constante, tensão, sintomas físicos, crises;</li>
+    <li><strong>Tristeza persistente e desânimo</strong> — quando o cansaço da alma não passa;</li>
+    <li><strong>Estresse e esgotamento</strong> — sobrecarga no trabalho, burnout, dificuldade de desligar;</li>
+    <li><strong>Relacionamentos</strong> — conflitos familiares, términos, padrões que se repetem;</li>
+    <li><strong>Transições de vida</strong> — mudança de carreira, luto, parentalidade, aposentadoria;</li>
+    <li><strong>Autoconhecimento</strong> — entender as próprias emoções, limites e escolhas;</li>
+    <li><strong>Convivência com TDAH ou TEA</strong> — organização da rotina e regulação emocional após (ou durante) o diagnóstico.</li>
+  </ul>
+
+  <h2>Como funciona o processo</h2>
+  <p>
+    As primeiras sessões são de acolhimento e compreensão: a Julia conhece a sua história, o que trouxe
+    você à terapia e o que gostaria de transformar. A partir daí, vocês constroem juntos um processo
+    com objetivos claros, revisados ao longo do caminho. Não há julgamento, não há resposta pronta —
+    há escuta qualificada e ferramentas baseadas em evidências.
+  </p>
+
+  <h2>Terapia e neuropsicologia: um diferencial</h2>
+  <p>
+    Por ser também neuropsicóloga, a Julia tem um olhar apurado para questões cognitivas que muitas
+    vezes se misturam às emocionais: a desatenção que parece ansiedade (ou vice-versa), o esquecimento
+    que preocupa, a procrastinação crônica. Quando faz sentido, uma
+    <a href="/avaliacao-neuropsicologica">avaliação neuropsicológica</a> complementa o processo
+    terapêutico com dados objetivos.
+  </p>
+
+  <h2>Presencial ou online, como preferir</h2>
+  <p>
+    As sessões acontecem no consultório em Santos (<a href="/consultorio">veja a localização</a>) ou
+    por videochamada (<a href="/terapia-online">saiba como funciona a terapia online</a>) — e é
+    possível alternar entre os formatos conforme a sua rotina.
+  </p>
+
+  <h2>Quanto custa a psicoterapia?</h2>
+  <p>
+    O valor da sessão é combinado diretamente no primeiro contato, pelo WhatsApp — sem letras
+    miúdas. Sessões particulares costumam ser reembolsadas parcialmente por planos de saúde mediante
+    recibo; vale confirmar as regras do seu convênio antes de começar.
+  </p>
+</ServiceLayout>

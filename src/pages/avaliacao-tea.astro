@@ -1,0 +1,92 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import type { FaqItem } from '../lib/seo';
+
+const faqs: FaqItem[] = [
+  {
+    question: 'A avaliação neuropsicológica diagnostica autismo sozinha?',
+    answer:
+      'O diagnóstico de TEA é multidisciplinar, geralmente fechado por médico (neurologista ou psiquiatra) com apoio de avaliações especializadas. A avaliação neuropsicológica é uma das peças mais importantes desse processo: ela caracteriza o perfil cognitivo, a comunicação social e os comportamentos, dando base objetiva para a conclusão.',
+  },
+  {
+    question: 'Adultos podem ser avaliados para TEA?',
+    answer:
+      'Sim. O diagnóstico tardio é cada vez mais comum, principalmente em pessoas com autismo nível 1 de suporte, que aprenderam a "camuflar" características ao longo da vida. A avaliação em adultos considera a história de desenvolvimento e o funcionamento atual.',
+  },
+  {
+    question: 'Qual a diferença entre autismo leve e nível 1 de suporte?',
+    answer:
+      '"Autismo leve" é o termo popular para o TEA nível 1 de suporte — pessoas que precisam de menos apoio no dia a dia, mas ainda assim enfrentam desafios reais de comunicação social, flexibilidade e processamento sensorial.',
+  },
+  {
+    question: 'O que muda com o diagnóstico?',
+    answer:
+      'Além do autoconhecimento, o diagnóstico dá acesso a direitos previstos em lei (como prioridade de atendimento e adaptações escolares), orienta terapias adequadas e ajuda a família, a escola e o trabalho a compreenderem e apoiarem melhor a pessoa.',
+  },
+  {
+    question: 'Meu filho é muito pequeno. Dá para avaliar?',
+    answer:
+      'Sinais de TEA podem ser identificados cedo, e a intervenção precoce faz grande diferença. Em crianças pequenas o processo é adaptado, com forte participação dos pais e observação lúdica. Entre em contato para conversar sobre o caso específico.',
+  },
+  {
+    question: 'Quanto custa a avaliação de TEA em Santos?',
+    answer:
+      'O valor acompanha o número de sessões e a complexidade do caso — variáveis que dependem da idade e das hipóteses a investigar — e é informado no primeiro contato pelo WhatsApp. Consulte também seu plano de saúde sobre reembolso mediante recibo.',
+  },
+];
+---
+
+<ServiceLayout
+  title="Avaliação de Autismo (TEA) em Santos | Julia Dias Tozato"
+  description="Avaliação de Transtorno do Espectro Autista em Santos-SP, incluindo TEA nível 1 (autismo leve) em crianças e adultos. Neuropsicóloga Julia Tozato, CRP 06/176959."
+  h1="Avaliação de Autismo (TEA) em Santos"
+  intro="A avaliação de TEA investiga, com instrumentos padronizados e observação clínica, as características do Transtorno do Espectro Autista: comunicação social, interesses, flexibilidade e processamento sensorial. Ela compõe o processo diagnóstico multidisciplinar e resulta em um laudo que orienta terapias, escola e garantias legais — em crianças, adolescentes e adultos."
+  path="/avaliacao-tea"
+  serviceName="Avaliação Neuropsicológica de TEA"
+  breadcrumbLabel="Avaliação de TEA"
+  faqs={faqs}
+  ctaHeading="Quer investigar sinais de TEA?"
+  ctaText="Fale com a Julia pelo WhatsApp para entender como funciona a avaliação no seu caso ou no do seu filho."
+>
+  <h2>Sinais que costumam motivar a investigação</h2>
+  <p><strong>Na infância:</strong></p>
+  <ul>
+    <li>Pouco contato visual e dificuldade de compartilhar interesse (apontar, mostrar);</li>
+    <li>Atraso ou particularidades na fala e na comunicação;</li>
+    <li>Brincadeiras repetitivas, interesses muito intensos e específicos;</li>
+    <li>Desconforto acentuado com sons, texturas ou mudanças de rotina;</li>
+    <li>Dificuldade de interagir com outras crianças da mesma idade.</li>
+  </ul>
+  <p><strong>Em adolescentes e adultos:</strong></p>
+  <ul>
+    <li>Sensação constante de "não pertencer" ou de precisar decorar regras sociais;</li>
+    <li>Exaustão após interações sociais (esforço de camuflagem);</li>
+    <li>Interesses profundos e altamente específicos;</li>
+    <li>Rigidez com rotinas e dificuldade com imprevistos;</li>
+    <li>Sensibilidade sensorial que interfere no dia a dia.</li>
+  </ul>
+
+  <h2>Como funciona a avaliação</h2>
+  <ol>
+    <li><strong>Entrevista inicial</strong> — história do desenvolvimento desde os primeiros anos, com participação dos pais quando possível (mesmo na avaliação de adultos, relatos da infância ajudam);</li>
+    <li><strong>Instrumentos padronizados</strong> específicos para rastreio e caracterização do TEA, adequados à idade;</li>
+    <li><strong>Avaliação cognitiva completa</strong> — o perfil de atenção, linguagem e funções executivas ajuda a diferenciar o TEA de outras condições e a identificar coocorrências, como o TDAH (<a href="/avaliacao-tdah">veja a avaliação de TDAH</a>);</li>
+    <li><strong>Observação clínica estruturada</strong> da comunicação e da interação;</li>
+    <li><strong>Devolutiva e laudo</strong>, com articulação com o médico responsável pelo fechamento diagnóstico.</li>
+  </ol>
+
+  <h2>TEA e TDAH podem coexistir?</h2>
+  <p>
+    Sim — a coocorrência é frequente e reconhecida pelos manuais diagnósticos. Por isso a avaliação
+    investiga o quadro completo, e não apenas uma hipótese isolada: entender o perfil inteiro da
+    pessoa é o que permite recomendações realmente úteis.
+  </p>
+
+  <h2>Quanto custa a avaliação de TEA?</h2>
+  <p>
+    O valor é definido conforme a idade e a quantidade de sessões necessárias para caracterizar o
+    perfil com segurança, e é sempre esclarecido no primeiro contato, antes de qualquer compromisso.
+    O investimento cobre a testagem, a análise e a redação do laudo — muitos planos de saúde
+    reembolsam parte do valor mediante recibo.
+  </p>
+</ServiceLayout>

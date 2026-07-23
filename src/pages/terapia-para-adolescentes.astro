@@ -1,0 +1,84 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import type { FaqItem } from '../lib/seo';
+
+const faqs: FaqItem[] = [
+  {
+    question: 'Os pais participam das sessões?',
+    answer:
+      'O processo começa com uma conversa com os responsáveis e inclui devolutivas periódicas, mas as sessões são do adolescente — com sigilo respeitado, o que é essencial para criar confiança. Situações de risco são comunicadas à família, conforme prevê o Código de Ética.',
+  },
+  {
+    question: 'Meu filho não quer ir à terapia. E agora?',
+    answer:
+      'É comum. Vale conversar sem pressão, apresentar a terapia como um espaço dele (e não um castigo) e permitir que experimente algumas sessões. O vínculo com a psicóloga costuma mudar a disposição — e a Julia trabalha ativamente para construir esse vínculo.',
+  },
+  {
+    question: 'A partir de que idade é atendimento de adolescente?',
+    answer:
+      'Em geral, dos 12 aos 18 anos. Crianças mais novas são atendidas no formato infantil, com abordagem lúdica — veja a página de neuropsicologia infantil.',
+  },
+  {
+    question: 'Adolescente pode fazer terapia online?',
+    answer:
+      'Sim, com autorização dos responsáveis. Para muitos adolescentes, o formato por videochamada é inclusive mais confortável e natural.',
+  },
+  {
+    question: 'Com que frequência costumam ser as sessões?',
+    answer:
+      'O mais comum é uma sessão semanal de cerca de 50 minutos. A frequência pode ser ajustada conforme a necessidade do adolescente e a orientação da Julia.',
+  },
+  {
+    question: 'Quanto custa a terapia para adolescentes?',
+    answer:
+      'O valor da sessão é informado aos responsáveis no primeiro contato pelo WhatsApp. Muitos planos de saúde reembolsam parte do valor mediante recibo — vale consultar o convênio da família.',
+  },
+];
+---
+
+<ServiceLayout
+  title="Psicóloga para Adolescentes em Santos | Julia Dias Tozato"
+  description="Terapia para adolescentes em Santos-SP e online: ansiedade, escola, autoestima, identidade e família. Espaço de escuta sem julgamento. Julia Tozato, CRP 06/176959."
+  h1="Terapia para Adolescentes em Santos e Online"
+  intro="A adolescência é uma fase de transformações intensas — no corpo, nas emoções, nas relações. A psicoterapia oferece ao adolescente um espaço só dele, sigiloso e sem julgamento, para elaborar o que sente, enquanto a família recebe orientação para acompanhar esse processo de perto, sem invadir."
+  path="/terapia-para-adolescentes"
+  serviceName="Psicoterapia para Adolescentes"
+  breadcrumbLabel="Terapia para Adolescentes"
+  faqs={faqs}
+  ctaHeading="Preocupado com seu filho adolescente?"
+  ctaText="Converse com a Julia pelo WhatsApp: ela orienta o melhor caminho, com acolhimento para o adolescente e para a família."
+>
+  <h2>Sinais de que a terapia pode ajudar</h2>
+  <ul>
+    <li>Isolamento — o quarto virou o mundo inteiro;</li>
+    <li>Irritabilidade intensa, explosões ou apatia persistente;</li>
+    <li>Queda brusca no rendimento escolar ou recusa de ir à escola;</li>
+    <li>Ansiedade — com provas, com o corpo, com as redes sociais;</li>
+    <li>Autoestima fragilizada, autocrítica constante;</li>
+    <li>Mudanças marcantes de sono e apetite;</li>
+    <li>Conflitos familiares que escalaram além do esperado para a fase;</li>
+    <li>Questões de identidade que o adolescente quer elaborar com apoio.</li>
+  </ul>
+
+  <h2>Como funciona</h2>
+  <ol>
+    <li><strong>Primeira conversa com os responsáveis</strong> — entender a preocupação da família e a história do adolescente;</li>
+    <li><strong>Sessões individuais com o adolescente</strong> — semanais, com sigilo garantido, no consultório ou online;</li>
+    <li><strong>Devolutivas periódicas à família</strong> — orientações práticas, sem quebrar a confiança do processo;</li>
+    <li><strong>Quando indicado</strong>, avaliação neuropsicológica complementar — desatenção e dificuldades escolares nessa fase podem indicar <a href="/avaliacao-tdah">TDAH</a> ou <a href="/dificuldades-de-aprendizagem">transtornos de aprendizagem</a> ainda não identificados.</li>
+  </ol>
+
+  <h2>Escola, família e terapia caminhando juntas</h2>
+  <p>
+    Quando a demanda envolve a escola — rendimento, comportamento, relações com colegas —, a Julia
+    pode dialogar com a equipe pedagógica (sempre com autorização da família), alinhando estratégias
+    entre casa, escola e consultório.
+  </p>
+
+  <h2>Quanto custa a terapia para adolescentes?</h2>
+  <p>
+    O valor da sessão é combinado com os responsáveis no primeiro contato, pelo WhatsApp. Sessões
+    particulares costumam ser reembolsadas parcialmente por planos de saúde mediante recibo — vale
+    confirmar as regras do convênio da família.
+  </p>
+</ServiceLayout>

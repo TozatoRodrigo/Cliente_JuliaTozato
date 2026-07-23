@@ -1,0 +1,89 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import type { FaqItem } from '../lib/seo';
+
+const faqs: FaqItem[] = [
+  {
+    question: 'Terapia online funciona mesmo?',
+    answer:
+      'Sim. Pesquisas mostram eficácia comparável à terapia presencial para a maioria das demandas, como ansiedade e depressão. O ingrediente que faz a terapia funcionar — o vínculo entre paciente e psicóloga — se constrói igualmente bem por videochamada.',
+  },
+  {
+    question: 'A terapia online é permitida pelo Conselho de Psicologia?',
+    answer:
+      'Sim. O atendimento psicológico online é regulamentado pelo Conselho Federal de Psicologia, e a Julia atende em conformidade com essas resoluções, com registro ativo (CRP 06/176959).',
+  },
+  {
+    question: 'Do que eu preciso para as sessões?',
+    answer:
+      'Apenas um celular ou computador com internet estável e um lugar privado onde você possa falar à vontade pelos 50 minutos da sessão. Fones de ouvido ajudam na privacidade.',
+  },
+  {
+    question: 'O sigilo é o mesmo do presencial?',
+    answer:
+      'Sim. As sessões não são gravadas e o sigilo profissional é idêntico ao do consultório, garantido pelo Código de Ética. A videochamada acontece em plataforma segura, combinada com você.',
+  },
+  {
+    question: 'Atende pacientes de qualquer cidade?',
+    answer:
+      'Sim — de todo o Brasil. Também é comum atender brasileiros que moram no exterior; nesse caso, basta alinhar fuso horário no agendamento.',
+  },
+  {
+    question: 'Posso alternar entre online e presencial?',
+    answer:
+      'Pode. Quem está em Santos e região costuma combinar os dois formatos conforme a rotina da semana.',
+  },
+];
+---
+
+<ServiceLayout
+  title="Psicóloga Online — Atendimento para Todo o Brasil | Julia Tozato"
+  description="Terapia online com a psicóloga Julia Dias Tozato (CRP 06/176959): sessões por videochamada para todo o Brasil, com sigilo e eficácia comprovada. Agende pelo WhatsApp."
+  h1="Terapia Online: psicoterapia por videochamada para todo o Brasil"
+  intro="A terapia online é o atendimento psicológico realizado por videochamada, regulamentado pelo Conselho Federal de Psicologia e com eficácia comparável à do formato presencial. Com a Julia, as sessões acontecem em plataforma segura, com o mesmo sigilo, a mesma escuta e o mesmo compromisso do consultório — de onde você estiver."
+  path="/terapia-online"
+  serviceName="Psicoterapia Online"
+  breadcrumbLabel="Terapia Online"
+  faqs={faqs}
+  ctaHeading="Comece sua terapia sem sair de casa"
+  ctaText="Envie uma mensagem pelo WhatsApp e agende sua primeira sessão online."
+>
+  <h2>Para quem a terapia online é ideal</h2>
+  <ul>
+    <li>Quem tem rotina corrida e perderia sessões por conta de deslocamento;</li>
+    <li>Quem mora em cidades sem acesso fácil a profissionais especializados;</li>
+    <li>Brasileiros que vivem no exterior e querem terapia em português;</li>
+    <li>Quem se sente mais à vontade falando do próprio espaço;</li>
+    <li>Pacientes de Santos que querem flexibilidade para alternar com o presencial.</li>
+  </ul>
+
+  <h2>Como funciona, na prática</h2>
+  <ol>
+    <li><strong>Agendamento pelo WhatsApp</strong> — você escolhe o horário com a Julia;</li>
+    <li><strong>Link da sessão</strong> — enviado antes do horário combinado, em plataforma segura;</li>
+    <li><strong>Sessão de ~50 minutos</strong> — mesma estrutura e profundidade do presencial;</li>
+    <li><strong>Continuidade semanal</strong> — o processo terapêutico segue o seu ritmo, com revisões periódicas dos objetivos.</li>
+  </ol>
+
+  <h2>O que dizem as evidências</h2>
+  <p>
+    Estudos e revisões sistemáticas conduzidos desde os anos 2000 — e intensificados após 2020 —
+    mostram que a psicoterapia por vídeo alcança resultados equivalentes à presencial para demandas
+    como ansiedade, depressão e estresse. O fator decisivo não é o meio, e sim a qualidade do vínculo
+    terapêutico e a regularidade do processo.
+  </p>
+
+  <h2>Um detalhe importante sobre avaliações</h2>
+  <p>
+    A psicoterapia funciona plenamente online. Já a <a href="/avaliacao-neuropsicologica">avaliação
+    neuropsicológica</a> costuma exigir etapas presenciais, porque muitos testes têm aplicação
+    controlada. Entrevistas e devolutivas, porém, podem ser feitas por videochamada — a Julia monta o
+    formato viável para cada caso.
+  </p>
+
+  <h2>Quanto custa a terapia online?</h2>
+  <p>
+    O valor da sessão online é o mesmo informado para o atendimento presencial, combinado no primeiro
+    contato pelo WhatsApp. Muitos planos de saúde reembolsam parte do valor mediante recibo.
+  </p>
+</ServiceLayout>

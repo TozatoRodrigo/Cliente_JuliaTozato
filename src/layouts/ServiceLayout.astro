@@ -1,0 +1,60 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaWhatsApp from '../components/CtaWhatsApp.astro';
+import Faq from '../components/Faq.astro';
+import {
+  breadcrumbSchema,
+  faqSchema,
+  serviceSchema,
+  type BreadcrumbItem,
+  type FaqItem,
+} from '../lib/seo';
+
+interface Props {
+  /** Title tag (≤ 60-70 caracteres, keyword primeiro) */
+  title: string;
+  /** Meta description (140-160 caracteres) */
+  description: string;
+  h1: string;
+  /** Resposta direta à intenção de busca — primeiro parágrafo citável (GEO) */
+  intro: string;
+  path: string;
+  serviceName: string;
+  breadcrumbLabel: string;
+  faqs?: readonly FaqItem[];
+  ctaHeading?: string;
+  ctaText?: string;
+}
+
+const { title, description, h1, intro, path, serviceName, breadcrumbLabel, faqs = [], ctaHeading, ctaText } =
+  Astro.props;
+
+const breadcrumbs: BreadcrumbItem[] = [
+  { name: 'Início', path: '/' },
+  { name: breadcrumbLabel, path },
+];
+
+const schemas = [
+  serviceSchema({ name: serviceName, description, path }),
+  breadcrumbSchema(breadcrumbs),
+  ...(faqs.length > 0 ? [faqSchema(faqs)] : []),
+];
+---
+
+<BaseLayout title={title} description={description} path={path} schemas={schemas}>
+  <article class="mx-auto max-w-3xl px-4 py-10">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="mb-8">
+      <h1 class="font-serif text-3xl font-semibold text-brand-900 sm:text-4xl">{h1}</h1>
+      <p class="prose-site mt-5 text-lg text-ink/90">{intro}</p>
+    </header>
+
+    <div class="prose-site">
+      <slot />
+    </div>
+
+    <Faq items={faqs} />
+    <CtaWhatsApp heading={ctaHeading} text={ctaText} />
+  </article>
+</BaseLayout>

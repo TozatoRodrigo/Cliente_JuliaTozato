@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaWhatsApp from '../components/CtaWhatsApp.astro';
+import { ADDRESS, CONTACT, OPENING_HOURS } from '../lib/constants';
+import { breadcrumbSchema, psychologistBusinessSchema } from '../lib/seo';
+
+const breadcrumbs = [
+  { name: 'Início', path: '/' },
+  { name: 'Consultório', path: '/consultorio' },
+];
+---
+
+<BaseLayout
+  title="Consultório em Santos — Boqueirão | Julia Dias Tozato"
+  description={`Atendimento presencial no ${ADDRESS.clinicName}, ${ADDRESS.full}. Como chegar, horários e agendamento pelo WhatsApp ${CONTACT.phoneDisplay}.`}
+  path="/consultorio"
+  schemas={[psychologistBusinessSchema(), breadcrumbSchema(breadcrumbs)]}
+>
+  <article class="mx-auto max-w-3xl px-4 py-10">
+    <Breadcrumbs items={breadcrumbs} />
+    <h1 class="font-serif text-3xl font-semibold text-brand-900 sm:text-4xl">
+      Consultório em Santos — Boqueirão
+    </h1>
+
+    <div class="prose-site mt-6">
+      <p class="text-lg">
+        O atendimento presencial da Julia acontece no <strong>{ADDRESS.clinicName}</strong>, um
+        espaço dedicado à neuropsicologia e à psicologia no bairro Boqueirão, em Santos-SP — ambiente
+        acolhedor, preparado tanto para sessões de psicoterapia quanto para avaliações
+        neuropsicológicas.
+      </p>
+
+      <h2>Endereço</h2>
+      <p>
+        {ADDRESS.street} – {ADDRESS.unit}
+        <br />
+        {ADDRESS.neighborhood}, {ADDRESS.city}/{ADDRESS.state}
+        <br />
+        CEP {ADDRESS.postalCode}
+      </p>
+      <p>
+        <a href={ADDRESS.mapsUrl} target="_blank" rel="noopener">Abrir no Google Maps →</a>
+      </p>
+
+      <h2>Horários</h2>
+      <p>{OPENING_HOURS}. Os horários são combinados diretamente com a Julia no agendamento.</p>
+
+      <h2>Como chegar</h2>
+      <ul>
+        <li>
+          <strong>De carro:</strong> a Av. Conselheiro Nébias é uma das principais vias de Santos,
+          ligando o centro à orla; há estacionamentos rotativos e particulares na região;
+        </li>
+        <li>
+          <strong>De ônibus:</strong> diversas linhas municipais e intermunicipais passam pela
+          própria avenida ou pelas paralelas;
+        </li>
+        <li>
+          <strong>A pé:</strong> o consultório fica a poucos minutos da orla, na altura do Boqueirão.
+        </li>
+      </ul>
+
+      <h2>Prefere atendimento a distância?</h2>
+      <p>
+        A Julia também atende por videochamada, para todo o Brasil —
+        <a href="/terapia-online">saiba como funciona a terapia online</a>.
+      </p>
+    </div>
+
+    <CtaWhatsApp
+      heading="Agende sua visita"
+      text={`Envie uma mensagem pelo WhatsApp ${CONTACT.phoneDisplay} para combinar o melhor horário.`}
+    />
+  </article>
+</BaseLayout>

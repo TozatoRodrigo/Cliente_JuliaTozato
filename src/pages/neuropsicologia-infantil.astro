@@ -1,0 +1,104 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import type { FaqItem } from '../lib/seo';
+
+const faqs: FaqItem[] = [
+  {
+    question: 'A partir de que idade a criança pode ser atendida?',
+    answer:
+      'Depende da demanda. Avaliações do desenvolvimento podem ocorrer cedo; testagens neuropsicológicas completas costumam ser mais confiáveis a partir dos 5-6 anos. No primeiro contato, a Julia orienta o formato adequado para a idade do seu filho.',
+  },
+  {
+    question: 'Como é a sessão com uma criança?',
+    answer:
+      'Lúdica. Jogos e atividades fazem parte tanto da avaliação quanto da estimulação cognitiva — a criança participa brincando, sem a pressão de uma "prova". Muitos dos jogos podem inclusive ser replicados em casa, em família.',
+  },
+  {
+    question: 'Os pais participam?',
+    answer:
+      'Sempre. O processo começa com entrevista com os pais, inclui orientações práticas para a rotina e termina com uma devolutiva completa. Com autorização da família, a escola também pode ser envolvida.',
+  },
+  {
+    question: 'Estimulação cognitiva substitui a escola ou o reforço?',
+    answer:
+      'Não — ela trabalha as funções que sustentam a aprendizagem (atenção, memória, planejamento), enquanto o reforço escolar trabalha o conteúdo. As duas coisas se complementam.',
+  },
+  {
+    question: 'Meu filho precisa de diagnóstico para ser atendido?',
+    answer:
+      'Não. Muitas famílias procuram a neuropsicologia infantil para entender dificuldades ainda sem nome, para estimular o desenvolvimento ou para acompanhar uma condição já diagnosticada.',
+  },
+  {
+    question: 'Quanto custa a avaliação neuropsicológica infantil?',
+    answer:
+      'O valor varia conforme a idade e a complexidade do caso — avaliações infantis costumam incluir contato com a escola e orientação aos pais, o que amplia o escopo. O valor é informado no primeiro contato, e muitos planos de saúde reembolsam parte mediante recibo.',
+  },
+];
+---
+
+<ServiceLayout
+  title="Avaliação Neuropsicológica Infantil em Santos | Julia Tozato"
+  description="Avaliação neuropsicológica infantil em Santos-SP: investigação e estimulação cognitiva de forma lúdica, com jogos. Atenção, memória e aprendizagem. Julia Tozato, CRP 06/176959."
+  h1="Neuropsicologia Infantil em Santos: Avaliação e Estimulação Cognitiva"
+  intro="A neuropsicologia infantil avalia e estimula o desenvolvimento cognitivo da criança — atenção, memória, linguagem e raciocínio — de forma lúdica e acolhedora. No consultório da Julia, jogos fazem parte do processo: a criança brinca enquanto habilidades essenciais para a escola e para a vida são avaliadas e fortalecidas."
+  path="/neuropsicologia-infantil"
+  serviceName="Neuropsicologia Infantil"
+  breadcrumbLabel="Neuropsicologia Infantil"
+  faqs={faqs}
+  ctaHeading="Quer entender melhor o desenvolvimento do seu filho?"
+  ctaText="Fale com a Julia pelo WhatsApp e descubra como a neuropsicologia infantil pode ajudar."
+>
+  <h2>Quando procurar a neuropsicologia infantil</h2>
+  <ul>
+    <li>A escola relata desatenção, agitação ou dificuldades de aprendizagem;</li>
+    <li>Suspeita de TDAH, TEA ou transtornos de aprendizagem (dislexia, discalculia);</li>
+    <li>Atrasos na fala ou no desenvolvimento em relação a outras crianças da idade;</li>
+    <li>Dificuldades de memória, organização ou planejamento nas tarefas;</li>
+    <li>Necessidade de estimulação cognitiva após diagnóstico ou condição neurológica;</li>
+    <li>Vontade de entender o perfil de desenvolvimento do filho, inclusive altas habilidades.</li>
+  </ul>
+
+  <h2>Avaliar brincando: o papel dos jogos</h2>
+  <p>
+    Jogos de tabuleiro, cartas e desafios lúdicos são ferramentas sérias da neuropsicologia: eles
+    exigem atenção, memória de trabalho, controle de impulsos, flexibilidade e planejamento — as
+    chamadas funções executivas. Observar a criança jogando revela muito sobre como ela pensa, e
+    treinar essas habilidades jogando é muito mais eficaz (e prazeroso) do que exercícios mecânicos.
+  </p>
+  <p>
+    A Julia também orienta as famílias sobre jogos que podem ser usados em casa, transformando o
+    cuidado com a mente em um momento de conexão familiar.
+  </p>
+
+  <h2>Serviços para crianças</h2>
+  <ul>
+    <li>
+      <strong>Avaliação neuropsicológica infantil</strong> — investigação completa de atenção,
+      memória, linguagem e aprendizagem (<a href="/avaliacao-neuropsicologica">como funciona a avaliação</a>);
+    </li>
+    <li>
+      <strong>Avaliação de TDAH</strong> e <strong>de TEA</strong> — veja as páginas de
+      <a href="/avaliacao-tdah">TDAH</a> e <a href="/avaliacao-tea">autismo</a>;
+    </li>
+    <li>
+      <strong>Investigação de dificuldades escolares</strong> —
+      <a href="/dificuldades-de-aprendizagem">dislexia, discalculia e outras</a>;
+    </li>
+    <li>
+      <strong>Estimulação cognitiva</strong> — sessões regulares para fortalecer funções específicas,
+      com plano individualizado;
+    </li>
+    <li>
+      <strong>Orientação a pais e escola</strong> — devolutivas claras e estratégias práticas para o
+      dia a dia.
+    </li>
+  </ul>
+
+  <h2>Quanto custa a avaliação neuropsicológica infantil?</h2>
+  <p>
+    O valor depende do número de sessões e da complexidade do caso, e costuma envolver também o
+    contato com a escola e a orientação aos pais — etapas que fazem parte do processo infantil. O
+    investimento é informado no primeiro contato, sem compromisso, e muitos planos de saúde
+    reembolsam parte do valor mediante recibo.
+  </p>
+</ServiceLayout>

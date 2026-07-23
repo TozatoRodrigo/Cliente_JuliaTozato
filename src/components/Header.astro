@@ -1,0 +1,99 @@
+---
+import { CONTACT, PROFESSIONAL } from '../lib/constants';
+
+const links = [
+  { label: 'Início', href: '/' },
+  { label: 'Sobre', href: '/sobre' },
+  { label: 'Avaliação Neuropsicológica', href: '/avaliacao-neuropsicologica' },
+  { label: 'Psicoterapia', href: '/terapia-para-adultos' },
+  { label: 'Terapia Online', href: '/terapia-online' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contato', href: '/contato' },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="sticky top-0 z-50 border-b border-brand-100 bg-cream/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+    <a href="/" class="flex flex-col leading-tight" aria-label="Página inicial">
+      <span class="font-serif text-lg font-semibold text-brand-800">Julia Dias Tozato</span>
+      <span class="text-xs tracking-wide text-brand-600 uppercase">Psicóloga e Neuropsicóloga · {PROFESSIONAL.crp}</span>
+    </a>
+
+    <nav class="hidden items-center gap-5 lg:flex" aria-label="Navegação principal">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            aria-current={currentPath === link.href ? 'page' : undefined}
+            class:list={[
+              'text-sm font-medium transition-colors hover:text-brand-600',
+              currentPath === link.href ? 'text-brand-700 underline underline-offset-4' : 'text-ink',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href={CONTACT.whatsappUrl}
+        target="_blank"
+        rel="noopener"
+        data-umami-event="whatsapp-click"
+        data-umami-event-page={currentPath}
+        class="rounded-full bg-brand-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-800"
+      >
+        Agendar pelo WhatsApp
+      </a>
+    </nav>
+
+    <button
+      id="menu-toggle"
+      type="button"
+      class="rounded-md border border-brand-200 p-2 text-brand-800 lg:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Abrir menu"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+      </svg>
+    </button>
+  </div>
+
+  <nav id="mobile-menu" class="hidden border-t border-brand-100 px-4 pb-4 lg:hidden" aria-label="Menu móvel">
+    <ul class="flex flex-col gap-1 pt-2">
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.href} class="block rounded px-2 py-2 text-sm font-medium hover:bg-brand-50">
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+      <li class="pt-2">
+        <a
+          href={CONTACT.whatsappUrl}
+          target="_blank"
+          rel="noopener"
+          data-umami-event="whatsapp-click"
+          data-umami-event-page={currentPath}
+          class="block rounded-full bg-brand-700 px-4 py-2 text-center text-sm font-semibold text-white"
+        >
+          Agendar pelo WhatsApp
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+</script>

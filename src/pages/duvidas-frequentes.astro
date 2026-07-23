@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaWhatsApp from '../components/CtaWhatsApp.astro';
+import Faq from '../components/Faq.astro';
+import { ADDRESS, CONTACT } from '../lib/constants';
+import { breadcrumbSchema, faqSchema, type FaqItem } from '../lib/seo';
+
+const breadcrumbs = [
+  { name: 'Início', path: '/' },
+  { name: 'Dúvidas Frequentes', path: '/duvidas-frequentes' },
+];
+
+const general: FaqItem[] = [
+  {
+    question: 'Como faço para agendar uma consulta?',
+    answer: `Pelo WhatsApp ${CONTACT.phoneDisplay}. A própria Julia responde, entende sua necessidade e combina o melhor horário — presencial em Santos ou online.`,
+  },
+  {
+    question: 'Onde fica o consultório?',
+    answer: `No ${ADDRESS.clinicName}, ${ADDRESS.full}, a poucos minutos da orla do Boqueirão.`,
+  },
+  {
+    question: 'Qual o valor das sessões e da avaliação?',
+    answer:
+      'Os valores são informados no primeiro contato pelo WhatsApp, pois variam conforme o serviço (psicoterapia ou avaliação) e o formato. A Julia emite recibo, que muitos planos de saúde aceitam para reembolso.',
+  },
+  {
+    question: 'Atende por convênio?',
+    answer:
+      'O atendimento é particular, com emissão de recibo para solicitação de reembolso junto ao seu plano de saúde. Consulte seu convênio sobre as regras de reembolso de psicoterapia e avaliação psicológica.',
+  },
+];
+
+const therapy: FaqItem[] = [
+  {
+    question: 'Qual a diferença entre psicóloga, neuropsicóloga e psiquiatra?',
+    answer:
+      'A psicóloga clínica conduz a psicoterapia. A neuropsicóloga — que também é psicóloga, com especialização — avalia funções cognitivas como atenção e memória. O psiquiatra é médico, diagnostica e prescreve medicação quando necessário. As três atuações se complementam, e a Julia cobre as duas primeiras.',
+  },
+  {
+    question: 'Quanto tempo dura cada sessão de terapia?',
+    answer: 'Cerca de 50 minutos, geralmente uma vez por semana — frequência ajustável conforme o caso.',
+  },
+  {
+    question: 'Terapia online tem a mesma eficácia?',
+    answer:
+      'Para a maioria das demandas, sim — é o que mostram as pesquisas. O atendimento online é regulamentado pelo Conselho Federal de Psicologia e segue o mesmo sigilo do presencial.',
+  },
+  {
+    question: 'O que eu falo na terapia é confidencial?',
+    answer:
+      'Sim, integralmente. O sigilo profissional é garantido pelo Código de Ética do Psicólogo, com raras exceções previstas em lei relacionadas a risco grave de vida.',
+  },
+];
+
+const assessment: FaqItem[] = [
+  {
+    question: 'O que é avaliação neuropsicológica?',
+    answer:
+      'Um exame detalhado das funções cognitivas — atenção, memória, linguagem, raciocínio — feito com testes padronizados, entrevistas e observação clínica. O resultado é um laudo que orienta diagnóstico, tratamento e adaptações escolares ou de trabalho.',
+  },
+  {
+    question: 'Quantas sessões dura uma avaliação?',
+    answer:
+      'Em geral de 4 a 8 encontros, entre entrevista inicial, sessões de testagem e devolutiva com entrega do laudo.',
+  },
+  {
+    question: 'Avaliação neuropsicológica detecta TDAH e autismo?',
+    answer:
+      'Ela é peça central na investigação de ambos: mede objetivamente as funções afetadas e caracteriza o perfil da pessoa. O diagnóstico formal é multidisciplinar, fechado com o médico a partir do laudo.',
+  },
+  {
+    question: 'Crianças pequenas conseguem fazer os testes?',
+    answer:
+      'Sim — existem instrumentos por faixa etária e a testagem infantil é lúdica, muitas vezes com jogos. A criança participa brincando.',
+  },
+];
+
+const allFaqs = [...general, ...therapy, ...assessment];
+---
+
+<BaseLayout
+  title="Dúvidas Frequentes — Psicóloga Julia Dias Tozato | Santos"
+  description="Respostas às principais dúvidas sobre psicoterapia, terapia online e avaliação neuropsicológica em Santos-SP: valores, agendamento, sigilo, duração e mais."
+  path="/duvidas-frequentes"
+  schemas={[faqSchema(allFaqs), breadcrumbSchema(breadcrumbs)]}
+>
+  <article class="mx-auto max-w-3xl px-4 py-10">
+    <Breadcrumbs items={breadcrumbs} />
+    <h1 class="font-serif text-3xl font-semibold text-brand-900 sm:text-4xl">Dúvidas frequentes</h1>
+    <p class="prose-site mt-4 text-lg">
+      Reunimos aqui as perguntas que mais chegam pelo WhatsApp. Se a sua não estiver na lista, é só
+      enviar uma mensagem — a Julia responde pessoalmente.
+    </p>
+
+    <Faq items={general} heading="Agendamento e valores" />
+    <Faq items={therapy} heading="Sobre a psicoterapia" />
+    <Faq items={assessment} heading="Sobre a avaliação neuropsicológica" />
+
+    <CtaWhatsApp heading="Ficou alguma dúvida?" text="Envie sua pergunta pelo WhatsApp — sem compromisso." />
+  </article>
+</BaseLayout>

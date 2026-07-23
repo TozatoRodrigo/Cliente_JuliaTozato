@@ -1,0 +1,112 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaWhatsApp from '../components/CtaWhatsApp.astro';
+import { CONTACT, PROFESSIONAL } from '../lib/constants';
+import { breadcrumbSchema, personSchema } from '../lib/seo';
+import juliaSobre from '../assets/images/julia-dias-tozato-sobre-santos.jpg';
+
+const breadcrumbs = [
+  { name: 'Início', path: '/' },
+  { name: 'Sobre', path: '/sobre' },
+];
+---
+
+<BaseLayout
+  title="Julia Dias Tozato — Psicóloga e Neuropsicóloga | CRP 06/176959"
+  description={`Conheça Julia Dias Tozato, psicóloga e neuropsicóloga (${PROFESSIONAL.crp}) com formação pelo Hospital Israelita Albert Einstein e especialização em TCC. Santos-SP e online.`}
+  path="/sobre"
+  schemas={[personSchema(), breadcrumbSchema(breadcrumbs)]}
+>
+  <article class="mx-auto max-w-3xl px-4 py-10">
+    <Breadcrumbs items={breadcrumbs} />
+    <h1 class="font-serif text-3xl font-semibold text-brand-900 sm:text-4xl">
+      Sobre Julia Dias Tozato
+    </h1>
+
+    <div class="prose-site mt-6">
+      <Image
+        src={juliaSobre}
+        alt="Julia Dias Tozato, psicóloga e neuropsicóloga (CRP 06/176959) em Santos-SP"
+        widths={[320, 480, 640]}
+        sizes="(min-width: 640px) 280px, 70vw"
+        loading="eager"
+        class="mx-auto mb-6 w-full max-w-[16rem] rounded-2xl object-cover object-top shadow-md ring-1 ring-brand-200/60 sm:float-right sm:mb-4 sm:ml-6"
+      />
+      <p class="text-lg">
+        {PROFESSIONAL.entitySentence}
+      </p>
+
+      <h2>Formação e registro profissional</h2>
+      <ul>
+        <li>
+          <strong>Graduação em Psicologia</strong> pela Universidade Católica de Santos (UniSantos),
+          2017–2021, com ênfase em psicologia cognitiva e psicolinguística.
+        </li>
+        <li>
+          <strong>Formação em Neuropsicologia pelo Hospital Israelita Albert Einstein</strong> — uma
+          das instituições de saúde mais respeitadas do país.
+        </li>
+        <li>
+          <strong>Especialista em Terapia Cognitivo-Comportamental (TCC) e Análise do Comportamento</strong>
+          — abordagens reconhecidas e baseadas em evidências científicas.
+        </li>
+        <li>
+          <strong>Supervisora clínica</strong> — acompanha e orienta outros profissionais de psicologia
+          em sua prática clínica.
+        </li>
+        <li>
+          <strong>Registro profissional ativo</strong> no Conselho Regional de Psicologia da 6ª Região
+          (São Paulo): {PROFESSIONAL.crp}, inscrição desde fevereiro de 2022.
+        </li>
+        <li>
+          <strong>Atuação em neuropsicologia</strong> no CNP – Centro de Neuropsicologia e Psicologia,
+          em Santos, com avaliação e estimulação de funções cognitivas.
+        </li>
+      </ul>
+
+      <h2>Como a Julia trabalha</h2>
+      <p>
+        O trabalho da Julia une duas frentes que se complementam: a <strong>psicologia clínica</strong>,
+        que acolhe a história, as emoções e os desafios de cada pessoa, e a
+        <strong> neuropsicologia</strong>, que investiga de forma estruturada como o cérebro sustenta
+        funções como atenção, memória, linguagem e raciocínio.
+      </p>
+      <p>
+        Na prática, isso significa um cuidado que é ao mesmo tempo humano e criterioso: cada avaliação
+        usa instrumentos padronizados e reconhecidos pela comunidade científica, e cada processo
+        terapêutico respeita o ritmo e a singularidade de quem está na sala — seja ela física ou virtual.
+      </p>
+      <p>
+        Com crianças, a Julia acredita que o cuidado com a mente pode ser leve: jogos e atividades
+        lúdicas fazem parte tanto das avaliações quanto da estimulação cognitiva, transformando o
+        consultório em um espaço que a criança tem vontade de frequentar.
+      </p>
+
+      <h2>Onde e como ela atende</h2>
+      <p>
+        O atendimento presencial acontece no CNP – Centro de Neuropsicologia e Psicologia, no bairro
+        Boqueirão, em Santos-SP. Para quem está em outra cidade — ou prefere a comodidade de casa —,
+        a psicoterapia online atende todo o Brasil, em conformidade com as resoluções do Conselho
+        Federal de Psicologia sobre atendimento a distância.
+      </p>
+      <p>
+        O primeiro contato é sempre pelo WhatsApp {CONTACT.phoneDisplay}: a própria Julia responde,
+        entende a sua necessidade e orienta o próximo passo.
+      </p>
+
+      <h2>Compromisso ético</h2>
+      <p>
+        Todo o trabalho segue o Código de Ética Profissional do Psicólogo: sigilo absoluto sobre o que
+        é compartilhado em sessão, respeito à autonomia de cada pessoa e comunicação honesta — sem
+        promessas de resultados, porque cada processo é único.
+      </p>
+    </div>
+
+    <CtaWhatsApp
+      heading="Quer conversar com a Julia?"
+      text="Envie uma mensagem pelo WhatsApp para tirar dúvidas sobre psicoterapia ou avaliação neuropsicológica."
+    />
+  </article>
+</BaseLayout>
