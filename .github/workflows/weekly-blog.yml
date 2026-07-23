@@ -33,6 +33,10 @@ jobs:
         id: gen
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Opcionais — defina como "Variables" no repo para usar outro provedor
+          # compatível (ex.: GLM/Z.ai). Vazios = usa a API da Anthropic.
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
         run: node scripts/generate-blog-post.mjs
 
       - name: Nada a fazer (backlog esgotado)

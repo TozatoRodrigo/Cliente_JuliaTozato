@@ -9,6 +9,16 @@ import { dirname, join } from 'node:path';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const BLOG_DIR = join(HERE, '..', 'src', 'content', 'blog');
 
+// Provedor de LLM — agnóstico. Por padrão usa a API da Anthropic; para usar um
+// provedor compatível (ex.: GLM/Z.ai), defina as variáveis LLM_BASE_URL e
+// LLM_MODEL. A chave vai sempre em ANTHROPIC_API_KEY.
+//   Anthropic:  (nada) → claude-opus-4-8
+//   GLM/Z.ai:   LLM_BASE_URL=https://api.z.ai/api/anthropic  LLM_MODEL=glm-4.7
+const API_KEY = process.env.ANTHROPIC_API_KEY;
+const BASE_URL = (process.env.LLM_BASE_URL || 'https://api.anthropic.com').replace(/\/+$/, '');
+const MODEL = process.env.LLM_MODEL || 'claude-opus-4-8';
+const USE_BEARER = !!process.env.LLM_BASE_URL; // provedores compatíveis usam Authorization: Bearer
+
 // Backlog priorizado — tema · slug · keyword-alvo · categoria · link interno principal.
 const BACKLOG = [
   { slug: 'o-que-e-neuropsicologia', title: 'O que é neuropsicologia e como ela pode ajudar', keyword: 'o que é neuropsicologia', category: 'neuropsicologia', link: '/avaliacao-neuropsicologica' },
@@ -99,15 +109,16 @@ const USER = `Escreva o post de hoje sobre o tema:
 - Nome do arquivo/slug: ${topic.slug}
 Responda apenas com o conteúdo .mdx.`;
 
-const res = await fetch('https://api.anthropic.com/v1/messages', {
+const headers = { 'anthropic-version': '2023-06-01', 'content-type': 'application/json' };
+if (USE_BEARER) headers['authorization'] = `Bearer ${API_KEY}`;
+else headers['x-api-key'] = API_KEY;
+
+console.log(`Gerando com modelo "${MODEL}" via ${BASE_URL}`);
+const res = await fetch(`${BASE_URL}/v1/messages`, {
   method: 'POST',
-  headers: {
-    'x-api-key': process.env.ANTHROPIC_API_KEY,
-    'anthropic-version': '2023-06-01',
-    'content-type': 'application/json',
-  },
+  headers,
   body: JSON.stringify({
-    model: 'claude-opus-4-8',
+    model: MODEL,
     max_tokens: 16000,
     system: SYSTEM,
     messages: [{ role: 'user', content: USER }],
