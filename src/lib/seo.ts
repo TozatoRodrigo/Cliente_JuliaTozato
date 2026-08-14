@@ -1,4 +1,4 @@
-import { ADDRESS, CONTACT, PROFESSIONAL, SITE_NAME, SITE_URL } from './constants';
+import { ADDRESS, CONTACT, PROFESSIONAL, SERVICE_AREA_CITIES, SITE_NAME, SITE_URL } from './constants';
 
 /** Builders tipados de JSON-LD. Cada página monta seu array de schemas com eles. */
 
@@ -15,6 +15,12 @@ export interface BreadcrumbItem {
 type JsonLd = Record<string, unknown>;
 
 const absoluteUrl = (path: string): string => new URL(path, SITE_URL).href;
+
+/** Cidades atendidas presencialmente (Baixada Santista) + Brasil (cobre o atendimento online). */
+const areaServed = (): JsonLd[] => [
+  ...SERVICE_AREA_CITIES.map((name) => ({ '@type': 'City', name })),
+  { '@type': 'Country', name: 'Brasil' },
+];
 
 export function personSchema(): JsonLd {
   return {
@@ -76,10 +82,7 @@ export function psychologistBusinessSchema(): JsonLd {
     url: SITE_URL,
     telephone: CONTACT.phoneE164,
     address: postalAddress(),
-    areaServed: [
-      { '@type': 'City', name: 'Santos' },
-      { '@type': 'Country', name: 'Brasil' },
-    ],
+    areaServed: areaServed(),
     founder: { '@id': `${SITE_URL}/#julia` },
     priceRange: '$$',
     sameAs: [CONTACT.instagramUrl],
@@ -107,10 +110,7 @@ export function serviceSchema(input: { name: string; description: string; path: 
     url: absoluteUrl(input.path),
     serviceType: input.name,
     provider: { '@id': `${SITE_URL}/#julia` },
-    areaServed: [
-      { '@type': 'City', name: 'Santos' },
-      { '@type': 'Country', name: 'Brasil' },
-    ],
+    areaServed: areaServed(),
   };
 }
 

@@ -78,6 +78,12 @@ export const ADDRESS = {
 export const OPENING_HOURS =
   'Atendimento com hora marcada, em horários flexíveis combinados individualmente — inclusive à noite, no atendimento online';
 
+/**
+ * Cidades da Baixada Santista atendidas presencialmente (deslocamento razoável até o
+ * consultório no Boqueirão) — alimenta `areaServed` nos schemas Psychologist/Service (SEO local).
+ */
+export const SERVICE_AREA_CITIES = ['Santos', 'São Vicente', 'Praia Grande', 'Guarujá', 'Cubatão'] as const;
+
 export const BLOG_CATEGORIES = {
   neuropsicologia: 'Neuropsicologia',
   tdah: 'TDAH',
