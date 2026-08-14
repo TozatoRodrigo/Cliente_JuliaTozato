@@ -34,6 +34,37 @@ body {
   @apply bg-cream font-sans text-ink antialiased;
 }
 
+/* Anéis de foco visíveis para navegação por teclado (a11y). */
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Link "pular para o conteúdo" — invisível até receber foco. */
+.skip-link {
+  @apply fixed top-2 left-2 z-[100] -translate-y-16 rounded-md bg-brand-800 px-4 py-2 text-sm font-semibold text-white transition-transform focus-visible:translate-y-0;
+}
+
+/* Evita palavras órfãs em títulos. */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+h1 {
+  letter-spacing: -0.01em;
+}
+
+/* Sombra com o tom da marca em vez do cinza neutro padrão do Tailwind —
+   usada nos CTAs principais (WhatsApp) para reforçar a identidade visual. */
+.shadow-brand {
+  box-shadow:
+    0 10px 25px -8px rgb(143 63 73 / 0.35),
+    0 4px 10px -6px rgb(143 63 73 / 0.25);
+}
+
 /* Tipografia padrão do conteúdo longo (posts e páginas de serviço) */
 .prose-site {
   @apply text-[1.0625rem] leading-relaxed;

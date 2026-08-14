@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaWhatsApp from '../components/CtaWhatsApp.astro';
+---
+
+<BaseLayout
+  title="Página não encontrada | Julia Dias Tozato"
+  description="A página que você procura não existe ou foi movida. Veja os principais serviços e o blog de Julia Dias Tozato, psicóloga e neuropsicóloga em Santos-SP."
+  path="/404"
+  noindex={true}
+>
+  <section class="mx-auto max-w-2xl px-4 py-20 text-center">
+    <p class="text-sm font-semibold tracking-wide text-brand-600 uppercase">Erro 404</p>
+    <h1 class="mt-3 font-serif text-3xl font-semibold text-brand-900 sm:text-4xl">
+      Essa página não foi encontrada
+    </h1>
+    <p class="mx-auto mt-4 max-w-md leading-relaxed text-ink/80">
+      O endereço pode ter mudado ou nunca existiu. Volte para o início ou veja os artigos do blog
+      sobre neuropsicologia, TDAH e TEA.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a
+        href="/"
+        class="shadow-brand rounded-full bg-brand-700 px-6 py-3 font-semibold text-white transition-all hover:bg-brand-800 active:scale-[0.97]"
+      >
+        Voltar ao início
+      </a>
+      <a
+        href="/blog"
+        class="rounded-full border border-brand-300 px-6 py-3 font-semibold text-brand-800 transition-all hover:bg-brand-50 active:scale-[0.97]"
+      >
+        Ver o blog
+      </a>
+    </div>
+
+    <div class="mt-4">
+      <CtaWhatsApp
+        heading="Prefere falar direto com a Julia?"
+        text="Envie uma mensagem pelo WhatsApp e ela ajuda a encontrar o que você procura."
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -42,7 +42,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
         rel="noopener"
         data-umami-event="whatsapp-click"
         data-umami-event-page={currentPath}
-        class="rounded-full bg-brand-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-800"
+        class="shadow-brand rounded-full bg-brand-700 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-brand-800 active:scale-[0.97]"
       >
         Agendar pelo WhatsApp
       </a>
@@ -51,7 +51,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
     <button
       id="menu-toggle"
       type="button"
-      class="rounded-md border border-brand-200 p-2 text-brand-800 lg:hidden"
+      class="rounded-md border border-brand-200 p-2 text-brand-800 transition-transform active:scale-95 lg:hidden"
       aria-expanded="false"
       aria-controls="mobile-menu"
       aria-label="Abrir menu"
@@ -80,7 +80,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
           rel="noopener"
           data-umami-event="whatsapp-click"
           data-umami-event-page={currentPath}
-          class="block rounded-full bg-brand-700 px-4 py-2 text-center text-sm font-semibold text-white"
+          class="shadow-brand block rounded-full bg-brand-700 px-4 py-2 text-center text-sm font-semibold text-white transition-transform active:scale-[0.97]"
         >
           Agendar pelo WhatsApp
         </a>

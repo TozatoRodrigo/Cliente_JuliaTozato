@@ -1,10 +1,12 @@
 ---
+import { getImage } from 'astro:assets';
 import '@fontsource-variable/inter';
 import '@fontsource-variable/lora';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { ANALYTICS, SITE_NAME, SITE_URL } from '../lib/constants';
+import juliaPortrait from '../assets/images/julia-dias-tozato-psicologa-neuropsicologa-santos.jpg';
 
 interface Props {
   title: string;
@@ -19,6 +21,10 @@ interface Props {
 
 const { title, description, path, ogType = 'website', schemas = [], noindex = false } = Astro.props;
 const canonical = new URL(path === '/' ? '/' : path, SITE_URL).href;
+
+/** Imagem padrão de compartilhamento social (og:image) — mesma foto em todas as páginas. */
+const ogImage = await getImage({ src: juliaPortrait, width: 1200 });
+const ogImageUrl = new URL(ogImage.src, SITE_URL).href;
 ---
 
 <!doctype html>
@@ -46,9 +52,13 @@ const canonical = new URL(path === '/' ? '/' : path, SITE_URL).href;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="pt_BR" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content={String(ogImage.attributes.width)} />
+    <meta property="og:image:height" content={String(ogImage.attributes.height)} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     {schemas.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
 
@@ -64,8 +74,9 @@ const canonical = new URL(path === '/' ? '/' : path, SITE_URL).href;
     }
   </head>
   <body class="flex min-h-screen flex-col">
+    <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
     <Header />
-    <main class="flex-1">
+    <main id="main-content" class="flex-1">
       <slot />
     </main>
     <Footer />
