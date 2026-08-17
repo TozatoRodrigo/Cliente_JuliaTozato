@@ -19,6 +19,51 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft && data.cat
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
+/**
+ * Texto de introdução único por categoria — evita páginas de categoria com pouco
+ * conteúdo (thin content) e reforça o link interno para a página de serviço
+ * correspondente. Cada texto é escrito à mão, não gerado a partir de um template,
+ * para não criar risco de conteúdo duplicado entre categorias.
+ */
+const categoryIntros: Record<BlogCategory, { text: string; href: string; linkLabel: string }> = {
+  neuropsicologia: {
+    text: 'A neuropsicologia investiga como o cérebro sustenta funções como atenção, memória, linguagem e raciocínio — e como essas funções mudam ao longo da vida, da infância à terceira idade. Aqui você encontra artigos sobre como funciona a avaliação neuropsicológica, o que consta no laudo, valores e cobertura por convênio.',
+    href: '/avaliacao-neuropsicologica',
+    linkLabel: 'Conheça a avaliação neuropsicológica em Santos',
+  },
+  tdah: {
+    text: 'O TDAH pode se manifestar de formas muito diferentes em crianças, adolescentes e adultos — nem sempre como hiperatividade visível. Os artigos desta categoria explicam como costuma ser feito o diagnóstico, os sinais em cada fase da vida e os direitos de estudantes com TDAH na escola.',
+    href: '/avaliacao-tdah',
+    linkLabel: 'Conheça a avaliação de TDAH',
+  },
+  tea: {
+    text: 'O Transtorno do Espectro Autista (TEA) tem apresentações variadas, incluindo formas mais sutis, como o nível 1 de suporte, muitas vezes identificadas tardiamente em adolescentes e adultos. Aqui você encontra conteúdo sobre sinais precoces e diagnóstico tardio de autismo.',
+    href: '/avaliacao-tea',
+    linkLabel: 'Conheça a avaliação de TEA',
+  },
+  ansiedade: {
+    text: 'Ansiedade, estresse e fases de transição de vida estão entre os motivos mais comuns que levam adultos a procurar psicoterapia. Os artigos desta categoria tratam de quando a ansiedade deixa de ser uma resposta normal e passa a pedir acompanhamento profissional, com uma abordagem baseada em evidências.',
+    href: '/terapia-para-adultos',
+    linkLabel: 'Conheça a terapia para adultos',
+  },
+  infancia: {
+    text: 'Dificuldades de aprendizagem, atraso na fala ou queixas trazidas pela escola costumam ser o primeiro sinal de que vale investigar melhor o desenvolvimento cognitivo de uma criança. Os artigos desta categoria ajudam pais a diferenciar uma fase passageira de um sinal que merece avaliação, sempre com devolutiva clara para a família e a escola.',
+    href: '/neuropsicologia-infantil',
+    linkLabel: 'Conheça a neuropsicologia infantil',
+  },
+  'terapia-online': {
+    text: 'A psicoterapia por videochamada segue as mesmas resoluções éticas do atendimento presencial e alcança quem mora fora de Santos ou prefere a comodidade de casa. Os artigos desta categoria abordam dúvidas comuns sobre o atendimento online: se funciona, para quem é indicado e como manter a mesma qualidade clínica à distância.',
+    href: '/terapia-online',
+    linkLabel: 'Conheça a terapia online',
+  },
+  psicoterapia: {
+    text: 'Psicoterapia é um processo de escuta e trabalho terapêutico contínuo, distinto de uma avaliação neuropsicológica — que investiga funções cognitivas com testes padronizados. Os artigos desta categoria explicam diferenças entre profissionais da saúde mental e outros temas do processo terapêutico.',
+    href: '/terapia-para-adultos',
+    linkLabel: 'Conheça a terapia para adultos',
+  },
+};
+const intro = categoryIntros[categoria];
+
 const path = `/blog/categoria/${categoria}`;
 const breadcrumbs = [
   { name: 'Início', path: '/' },
@@ -36,6 +81,10 @@ const breadcrumbs = [
   <section class="mx-auto max-w-6xl px-4 py-10">
     <Breadcrumbs items={breadcrumbs} />
     <h1 class="font-serif text-3xl font-semibold text-brand-900 sm:text-4xl">{label}</h1>
+    <p class="mt-4 max-w-3xl text-ink/80">
+      {intro.text}{' '}
+      <a class="font-semibold text-brand-700 hover:underline" href={intro.href}>{intro.linkLabel} →</a>
+    </p>
 
     {
       posts.length > 0 ? (
