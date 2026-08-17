@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaWhatsApp from '../components/CtaWhatsApp.astro';
+import Faq from '../components/Faq.astro';
+import { ADDRESS, CONTACT } from '../lib/constants';
+import { breadcrumbSchema, faqSchema, serviceSchema, type FaqItem } from '../lib/seo';
+
+const breadcrumbs = [
+  { name: 'Início', path: '/' },
+  { name: 'Atendimento na Baixada Santista', path: '/atendimento-baixada-santista' },
+];
+
+const faqs: FaqItem[] = [
+  {
+    question: 'Atende pacientes de fora de Santos?',
+    answer:
+      'Sim. Boa parte dos pacientes vem de outras cidades da Baixada Santista — o consultório no Boqueirão é de fácil acesso pela Av. Conselheiro Nébias e por linhas de ônibus intermunicipais que conectam a região.',
+  },
+  {
+    question: 'Preciso ir presencialmente para todas as sessões?',
+    answer:
+      'Para psicoterapia, não — o atendimento pode ser totalmente online. Já a avaliação neuropsicológica costuma exigir aplicação presencial dos testes, porque muitos instrumentos precisam de observação controlada; a entrevista inicial e a devolutiva às vezes podem ocorrer online, conforme o caso.',
+  },
+  {
+    question: 'Quanto tempo leva o deslocamento de São Vicente, Praia Grande, Guarujá ou Cubatão até o Boqueirão?',
+    answer:
+      'Varia por cidade e meio de transporte, mas em geral fica entre poucos minutos e cerca de meia hora dentro da própria região — a Baixada Santista é pequena e bem conectada.',
+  },
+  {
+    question: 'Vale a pena se deslocar até Santos em vez de procurar um profissional na própria cidade?',
+    answer:
+      'Neuropsicologia é uma especialização dentro da Psicologia, nem toda cidade da região tem profissionais dedicados a ela. Ampliar a busca para toda a Baixada Santista aumenta a chance de encontrar experiência específica na queixa investigada — TDAH, TEA, dificuldades de aprendizagem, memória em idosos, entre outras.',
+  },
+];
+---
+
+<BaseLayout
+  title="Atendimento na Baixada Santista — Psicóloga e Neuropsicóloga"
+  description="Psicoterapia e avaliação neuropsicológica em Santos, para pacientes de São Vicente, Praia Grande, Guarujá e Cubatão. Consultório no Boqueirão e atendimento online."
+  path="/atendimento-baixada-santista"
+  schemas={[
+    serviceSchema({
+      name: 'Psicoterapia e Avaliação Neuropsicológica na Baixada Santista',
+      description:
+        'Atendimento presencial em Santos-SP e online, para pacientes de toda a Baixada Santista — São Vicente, Praia Grande, Guarujá e Cubatão.',
+      path: '/atendimento-baixada-santista',
+    }),
+    faqSchema(faqs),
+    breadcrumbSchema(breadcrumbs),
+  ]}
+>
+  <article class="mx-auto max-w-3xl px-4 py-10">
+    <Breadcrumbs items={breadcrumbs} />
+    <h1 class="font-serif text-3xl font-semibold text-brand-900 sm:text-4xl">
+      Atendimento para toda a Baixada Santista
+    </h1>
+
+    <div class="prose-site mt-6">
+      <p class="text-lg">
+        O consultório fica no <strong>{ADDRESS.neighborhood}, em Santos</strong>, mas boa parte dos
+        pacientes da Julia vem de outras cidades da região — a Baixada Santista é pequena, bem
+        conectada, e vale ampliar a busca por um profissional além dos limites da própria cidade,
+        especialmente quando a especialidade procurada é a neuropsicologia.
+      </p>
+
+      <h2>São Vicente</h2>
+      <p>
+        São Vicente é a cidade vizinha mais próxima do Boqueirão, com poucos minutos de trajeto pela
+        Av. Conselheiro Nébias ou por linhas intermunicipais. É comum famílias de São Vicente
+        procurarem avaliação de TDAH ou TEA em Santos justamente pela concentração de especialistas
+        na cidade.
+      </p>
+
+      <h2>Praia Grande</h2>
+      <p>
+        De Praia Grande, o acesso costuma ser pela orla ou por ônibus intermunicipal, em um trajeto de
+        cerca de 20 a 30 minutos. Muitos pacientes de Praia Grande buscam a avaliação neuropsicológica
+        em idosos, para diferenciar esquecimento normal de sinais que merecem investigação médica.
+      </p>
+
+      <h2>Guarujá</h2>
+      <p>
+        Guarujá é conectada a Santos pela balsa ou pela Ponte Anchieta-Imigrantes, dependendo do ponto
+        de partida na ilha. O deslocamento vale especialmente para processos que exigem continuidade
+        com a mesma profissional ao longo de várias sessões, como a avaliação neuropsicológica
+        completa.
+      </p>
+
+      <h2>Cubatão</h2>
+      <p>
+        Cubatão fica a cerca de 20 minutos de Santos pela rodovia, com boa oferta de transporte
+        intermunicipal. Para quem prefere não se deslocar em todas as etapas, a psicoterapia por
+        <a href="/terapia-online"> videochamada</a> é uma alternativa com a mesma qualidade clínica do
+        atendimento presencial.
+      </p>
+
+      <h2>Como chegar ao consultório</h2>
+      <p>
+        Veja o endereço completo, horários e opções de transporte na página do
+        <a href="/consultorio">consultório em Santos</a>. Se preferir entender antes os critérios para
+        escolher onde fazer a avaliação, o artigo
+        <a href="/blog/avaliacao-neuropsicologica-baixada-santista"> avaliação neuropsicológica na Baixada Santista: como escolher</a>
+        detalha o que perguntar antes de agendar.
+      </p>
+    </div>
+
+    <Faq items={faqs} />
+
+    <CtaWhatsApp
+      heading="Mora na Baixada Santista?"
+      text={`Envie uma mensagem pelo WhatsApp ${CONTACT.phoneDisplay} para saber se o atendimento presencial ou online faz mais sentido para o seu caso.`}
+    />
+  </article>
+</BaseLayout>
