@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaWhatsApp from '../components/CtaWhatsApp.astro';
+import Faq from '../components/Faq.astro';
+import { CONTACT } from '../lib/constants';
+import { breadcrumbSchema, faqSchema, type FaqItem } from '../lib/seo';
+
+const breadcrumbs = [
+  { name: 'Início', path: '/' },
+  { name: 'Convênios e Reembolso', path: '/convenios-e-reembolso' },
+];
+
+const faqs: FaqItem[] = [
+  {
+    question: 'A Julia atende pela Unimed ou outro convênio diretamente?',
+    answer:
+      'Não há atendimento direto credenciado a nenhum convênio — o atendimento é particular. A Julia emite recibo detalhado (com CRP, CPF ou CNPJ) para você solicitar reembolso junto à sua operadora, conforme as regras do seu plano.',
+  },
+  {
+    question: 'Quais convênios costumam reembolsar avaliação neuropsicológica e psicoterapia?',
+    answer:
+      'Muitos planos — incluindo Unimed, Bradesco Saúde, SulAmérica, Amil e Porto Seguro, conforme o contrato — reembolsam parte do valor mediante recibo e, em alguns casos, encaminhamento médico com CID. As regras de percentual, teto e prazo variam por operadora, por isso vale confirmar direto com a central do seu convênio antes de agendar.',
+  },
+  {
+    question: 'Preciso de encaminhamento médico para pedir reembolso?',
+    answer:
+      'Depende do plano. Alguns exigem encaminhamento com CID (código da doença) para autorizar o reembolso, especialmente de avaliação neuropsicológica. Pergunte à central do seu convênio antes da primeira sessão para não ter contratempos depois.',
+  },
+  {
+    question: 'O reembolso cobre o valor total da sessão ou da avaliação?',
+    answer:
+      'Raramente. A maioria das operadoras reembolsa com base em uma tabela própria de referência, que costuma ficar abaixo do valor cobrado por profissionais particulares. Ainda assim, o reembolso parcial reduz de forma significativa o investimento total.',
+  },
+  {
+    question: 'Quanto tempo demora para o reembolso cair na conta?',
+    answer:
+      'Varia por operadora, mas costuma levar de 15 a 30 dias após o envio completo da documentação (recibo, encaminhamento e, quando exigido, o laudo). Prazos maiores geralmente indicam a necessidade de complementar algum documento.',
+  },
+];
+---
+
+<BaseLayout
+  title="Convênios e Reembolso — Psicóloga Julia Dias Tozato | Santos"
+  description="Atendimento particular com recibo para reembolso. Veja como funciona o reembolso de psicoterapia e avaliação neuropsicológica pelo seu plano de saúde, em Santos-SP."
+  path="/convenios-e-reembolso"
+  schemas={[faqSchema(faqs), breadcrumbSchema(breadcrumbs)]}
+>
+  <article class="mx-auto max-w-3xl px-4 py-10">
+    <Breadcrumbs items={breadcrumbs} />
+    <h1 class="font-serif text-3xl font-semibold text-brand-900 sm:text-4xl">Convênios e Reembolso</h1>
+
+    <div class="prose-site mt-6">
+      <p class="text-lg">
+        O atendimento com a Julia é <strong>particular</strong>, sem credenciamento direto a nenhum
+        convênio — mas isso não significa que o plano de saúde não ajude a pagar. A cada sessão ou
+        etapa da avaliação, a Julia emite um <strong>recibo detalhado</strong>, que a maioria das
+        operadoras aceita para reembolso parcial, tanto de psicoterapia quanto de avaliação
+        neuropsicológica.
+      </p>
+
+      <h2>Por que o atendimento é particular, e não credenciado</h2>
+      <p>
+        Fora da rede credenciada, o atendimento acontece sem fila de espera, com agenda flexível e
+        continuidade garantida com a mesma profissional do início ao fim do processo — algo nem sempre
+        possível dentro da rede própria de um convênio. O reembolso é o caminho que equilibra essa
+        flexibilidade com uma redução real no investimento.
+      </p>
+
+      <h2>Convênios que costumam reembolsar</h2>
+      <p>
+        Cada operadora tem sua própria política, mas planos como <strong>Unimed</strong>,
+        <strong> Bradesco Saúde</strong>, <strong>SulAmérica</strong>, <strong>Amil</strong> e
+        <strong> Porto Seguro</strong> costumam prever reembolso de psicoterapia e avaliação
+        neuropsicológica para atendimento fora da rede — total ou parcialmente, conforme o contrato.
+        O passo mais importante é <strong>ligar para a central do seu convênio antes de agendar</strong>
+        e perguntar especificamente sobre "reembolso de avaliação neuropsicológica" ou "reembolso de
+        psicoterapia", já que alguns atendentes confundem com outros serviços.
+      </p>
+
+      <h2>Documentos que costumam ser pedidos</h2>
+      <ul>
+        <li>Recibo detalhado, com os dados profissionais da Julia (nome, CRP, CPF ou CNPJ);</li>
+        <li>Encaminhamento médico com CID, quando exigido pela operadora — principalmente para avaliação neuropsicológica;</li>
+        <li>Em alguns casos, uma cópia do laudo, ao final da avaliação.</li>
+      </ul>
+
+      <h2>Quer entender o processo em mais detalhe?</h2>
+      <p>
+        Dois artigos do blog aprofundam pontos específicos: o passo a passo completo de
+        <a href="/blog/plano-de-saude-avaliacao-neuropsicologica"> como solicitar reembolso de avaliação neuropsicológica</a>,
+        e o que compõe
+        <a href="/blog/quanto-custa-avaliacao-neuropsicologica"> o valor de uma avaliação e por que ele varia</a>.
+      </p>
+    </div>
+
+    <Faq items={faqs} />
+
+    <CtaWhatsApp
+      heading="Tem dúvidas sobre o seu convênio específico?"
+      text={`Envie uma mensagem pelo WhatsApp ${CONTACT.phoneDisplay} — a Julia explica o que costuma ser exigido antes de você agendar.`}
+    />
+  </article>
+</BaseLayout>
