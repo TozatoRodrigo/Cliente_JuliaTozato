@@ -95,3 +95,77 @@ export const BLOG_CATEGORIES = {
 } as const;
 
 export type BlogCategory = keyof typeof BLOG_CATEGORIES;
+
+/**
+ * Catálogo dos serviços realmente prestados — fonte única para o `makesOffer` do schema
+ * `Psychologist` (GEO: ajuda IA/Google a entender todo o catálogo a partir da entidade principal,
+ * não só de cada página isolada) e para o CTA de serviço relacionado exibido ao fim de cada post
+ * do blog (transforma leitura informacional em intenção comercial).
+ */
+export interface ServiceInfo {
+  name: string;
+  path: string;
+  shortDescription: string;
+}
+
+export const SERVICES: readonly ServiceInfo[] = [
+  {
+    name: 'Avaliação Neuropsicológica',
+    path: '/avaliacao-neuropsicologica',
+    shortDescription: 'Exame completo de atenção, memória, linguagem e funções executivas, com laudo.',
+  },
+  {
+    name: 'Avaliação de TDAH',
+    path: '/avaliacao-tdah',
+    shortDescription: 'Investigação de TDAH em crianças e adultos com testes padronizados.',
+  },
+  {
+    name: 'Avaliação de Autismo (TEA)',
+    path: '/avaliacao-tea',
+    shortDescription: 'Investigação de TEA, incluindo nível 1 de suporte, em todas as idades.',
+  },
+  {
+    name: 'Avaliação de Dificuldades de Aprendizagem',
+    path: '/dificuldades-de-aprendizagem',
+    shortDescription: 'Avaliação de dislexia, discalculia e outros transtornos de aprendizagem.',
+  },
+  {
+    name: 'Neuropsicologia Infantil',
+    path: '/neuropsicologia-infantil',
+    shortDescription: 'Avaliação e estimulação cognitiva lúdica, com jogos, para crianças.',
+  },
+  {
+    name: 'Avaliação Neuropsicológica em Idosos',
+    path: '/avaliacao-neuropsicologica-idosos',
+    shortDescription: 'Investigação de memória e atenção na terceira idade, diagnóstico precoce de declínio cognitivo.',
+  },
+  {
+    name: 'Terapia para Adultos',
+    path: '/terapia-para-adultos',
+    shortDescription: 'Psicoterapia individual, presencial em Santos ou online.',
+  },
+  {
+    name: 'Terapia para Adolescentes',
+    path: '/terapia-para-adolescentes',
+    shortDescription: 'Acompanhamento psicológico de adolescentes.',
+  },
+  {
+    name: 'Terapia Online',
+    path: '/terapia-online',
+    shortDescription: 'Psicoterapia por videochamada para todo o Brasil, regulamentada pelo CFP.',
+  },
+] as const;
+
+/**
+ * Serviço mais relevante para cada categoria do blog — usado no CTA de "próximo passo" ao fim de
+ * cada post, para converter tráfego informacional em visita à página de serviço (comercial).
+ */
+export const CATEGORY_SERVICE: Record<BlogCategory, ServiceInfo> = {
+  neuropsicologia: SERVICES[0],
+  tdah: SERVICES[1],
+  tea: SERVICES[2],
+  ansiedade: SERVICES[6],
+  infancia: SERVICES[4],
+  'terapia-online': SERVICES[8],
+  psicoterapia: SERVICES[6],
+};
