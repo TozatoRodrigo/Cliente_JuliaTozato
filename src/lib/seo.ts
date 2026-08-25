@@ -1,4 +1,4 @@
-import { ADDRESS, CONTACT, PROFESSIONAL, SERVICE_AREA_CITIES, SITE_NAME, SITE_URL } from './constants';
+import { ADDRESS, CONTACT, PROFESSIONAL, SERVICE_AREA_CITIES, SERVICES, SITE_NAME, SITE_URL } from './constants';
 
 /** Builders tipados de JSON-LD. Cada página monta seu array de schemas com eles. */
 
@@ -86,6 +86,17 @@ export function psychologistBusinessSchema(): JsonLd {
     founder: { '@id': `${SITE_URL}/#julia` },
     priceRange: '$$',
     sameAs: [CONTACT.instagramUrl],
+    // Catálogo completo de serviços na entidade principal — reforça para Google/IA que estas
+    // páginas de serviço pertencem ao mesmo negócio (GEO), além de cada uma ter seu próprio Service.
+    makesOffer: SERVICES.map((service) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: service.name,
+        description: service.shortDescription,
+        url: absoluteUrl(service.path),
+      },
+    })),
   };
 }
 

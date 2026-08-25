@@ -115,15 +115,17 @@ const schemas = [websiteSchema(), psychologistBusinessSchema(), personSchema(), 
             href={CONTACT.whatsappUrl}
             target="_blank"
             rel="noopener"
+            data-umami-event="whatsapp-click"
+            data-umami-event-page="/#hero"
             class="shadow-brand rounded-full bg-brand-700 px-6 py-3 font-semibold text-white transition-all hover:bg-brand-800 active:scale-[0.97]"
           >
-            Agendar pelo WhatsApp
+            Agendar uma conversa inicial
           </a>
           <a
-            href="/avaliacao-neuropsicologica"
+            href="#servicos"
             class="rounded-full border border-brand-300 px-6 py-3 font-semibold text-brand-800 transition-all hover:bg-brand-50 active:scale-[0.97]"
           >
-            Conhecer a avaliação neuropsicológica
+            Conhecer os serviços
           </a>
         </div>
       </div>
@@ -158,7 +160,7 @@ const schemas = [websiteSchema(), psychologistBusinessSchema(), personSchema(), 
   </section>
 
   <!-- Serviços -->
-  <section class="bg-white py-14">
+  <section id="servicos" class="scroll-mt-20 bg-white py-14">
     <div class="mx-auto max-w-6xl px-4">
       <h2 class="font-serif text-3xl font-semibold text-brand-900">Como posso te ajudar</h2>
       <p class="mt-2 max-w-2xl text-ink/80">

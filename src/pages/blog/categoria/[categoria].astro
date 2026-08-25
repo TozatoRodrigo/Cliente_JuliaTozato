@@ -64,6 +64,8 @@ const categoryIntros: Record<BlogCategory, { text: string; href: string; linkLab
 };
 const intro = categoryIntros[categoria];
 
+// noindex enquanto a categoria não tiver nenhum post: evita indexar uma página só com o texto de
+// introdução (thin content), que pesa contra o site inteiro no Search Console.
 const path = `/blog/categoria/${categoria}`;
 const breadcrumbs = [
   { name: 'Início', path: '/' },
@@ -77,6 +79,7 @@ const breadcrumbs = [
   description={`Artigos sobre ${label.toLowerCase()} escritos pela psicóloga e neuropsicóloga Julia Dias Tozato (CRP 06/176959), de Santos-SP. Conteúdo confiável e acessível.`}
   path={path}
   schemas={[breadcrumbSchema(breadcrumbs)]}
+  noindex={posts.length === 0}
 >
   <section class="mx-auto max-w-6xl px-4 py-10">
     <Breadcrumbs items={breadcrumbs} />

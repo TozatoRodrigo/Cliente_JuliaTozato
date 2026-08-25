@@ -1,0 +1,31 @@
+---
+import { CATEGORY_SERVICE, type BlogCategory } from '../lib/constants';
+
+interface Props {
+  /** Categoria do post — define qual página de serviço é sugerida como próximo passo. */
+  category: BlogCategory;
+}
+
+const { category } = Astro.props;
+const service = CATEGORY_SERVICE[category];
+---
+
+<!--
+  CTA secundário de "próximo passo" ao fim de cada post: transforma leitura informacional em
+  intenção comercial, ligando o tema do artigo à página de serviço correspondente. O clique é
+  medido separadamente do whatsapp-click (Umami) para acompanhar "página de serviço visitada
+  após artigo" mencionado no plano de conversão.
+-->
+<aside class="mt-10 rounded-2xl border border-brand-200 bg-brand-50 p-6">
+  <p class="text-sm font-semibold tracking-wide text-brand-700 uppercase">Próximo passo</p>
+  <p class="mt-2 text-ink/85">{service.shortDescription}</p>
+  <a
+    href={service.path}
+    data-umami-event="service-cta-click"
+    data-umami-event-category={category}
+    data-umami-event-service={service.path}
+    class="mt-4 inline-flex items-center gap-1 font-semibold text-brand-700 hover:underline"
+  >
+    Conhecer {service.name} →
+  </a>
+</aside>

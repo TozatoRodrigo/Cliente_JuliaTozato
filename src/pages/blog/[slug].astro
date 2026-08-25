@@ -6,6 +6,7 @@ import AuthorBox from '../../components/AuthorBox.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaWhatsApp from '../../components/CtaWhatsApp.astro';
 import Faq from '../../components/Faq.astro';
+import RelatedServiceCta from '../../components/RelatedServiceCta.astro';
 import { BLOG_CATEGORIES } from '../../lib/constants';
 import { blogPostingSchema, breadcrumbSchema, faqSchema } from '../../lib/seo';
 
@@ -77,6 +78,7 @@ const dateFormatted = post.data.pubDate.toLocaleDateString('pt-BR', {
     </div>
 
     <Faq items={post.data.faqs} />
+    <RelatedServiceCta category={post.data.category} />
     <AuthorBox />
     <CtaWhatsApp />
   </article>
